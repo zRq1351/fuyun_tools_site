@@ -286,38 +286,6 @@ h1 {
   flex-wrap: wrap;
 }
 
-.hero-logo-showcase {
-  margin-top: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(120, 193, 255, 0.48);
-  background: linear-gradient(130deg, rgba(82, 147, 255, 0.2), rgba(91, 242, 255, 0.15));
-  box-shadow: 0 14px 28px rgba(11, 44, 86, 0.36), 0 0 18px rgba(95, 214, 255, 0.28);
-}
-
-.hero-logo-showcase img {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  display: block;
-  box-shadow: 0 0 22px rgba(103, 196, 255, 0.62);
-}
-
-.hero-logo-showcase strong {
-  display: block;
-  color: #ecf6ff;
-  font-size: 14px;
-}
-
-.hero-logo-showcase span {
-  display: block;
-  margin-top: 2px;
-  color: #b8d9ff;
-  font-size: 12px;
-}
 
 .btn {
   display: inline-flex;
@@ -371,6 +339,17 @@ h1 {
   box-shadow: 0 16px 28px rgba(5, 10, 24, 0.38), inset 0 0 36px rgba(94, 170, 255, 0.08);
 }
 
+.hero-brand-mark {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .panel::after {
   content: "";
   position: absolute;
@@ -386,16 +365,6 @@ h1 {
   pointer-events: none;
 }
 
-.hero-brand-mark {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
-  opacity: 0.2;
-  pointer-events: none;
-}
 
 .panel h3 {
   margin: 0 0 12px;
@@ -817,10 +786,6 @@ th {
   .gallery-grid,
   .architecture {
     grid-template-columns: 1fr;
-  }
-
-  .hero-logo-showcase {
-    width: 100%;
   }
 
   .cta-box,
