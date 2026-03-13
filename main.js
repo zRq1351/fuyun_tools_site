@@ -67,6 +67,7 @@ const releaseVersionNodes = document.querySelectorAll(".js-latest-version")
 const versionLabelNodes = document.querySelectorAll(".js-version-label")
 const i18nTextNodes = document.querySelectorAll("[data-i18n]")
 const i18nAriaNodes = document.querySelectorAll("[data-i18n-aria-label]")
+const i18nAltNodes = document.querySelectorAll("[data-i18n-alt]")
 const lightboxAltTriggers = document.querySelectorAll(".shot-trigger")
 
 const i18nMap = {
@@ -84,6 +85,9 @@ const i18nMap = {
     meta_stack: "技术栈：Vue 3 + Element Plus + Tauri 2 + Rust",
     meta_ai_sdk: "AI SDK：async-openai（OpenAI 兼容）",
     latest_version_label: "当前最新版本：",
+    logo_showcase_title: "品牌图标",
+    logo_showcase_desc: "统一用于网站 Logo、分享卡片与应用识别",
+    logo_alt: "fuyun_tools 品牌图标",
     core_title: "核心能力",
     core_1: "文本剪贴板自动记录、搜索、分类、回填",
     core_2: "图片剪贴板缩略图管理、双击回填、全屏预览",
@@ -165,6 +169,9 @@ const i18nMap = {
     meta_stack: "Stack: Vue 3 + Element Plus + Tauri 2 + Rust",
     meta_ai_sdk: "AI SDK: async-openai (OpenAI compatible)",
     latest_version_label: "Latest Version: ",
+    logo_showcase_title: "Brand Icon",
+    logo_showcase_desc: "Used consistently in site logo, share cards, and product identity",
+    logo_alt: "fuyun_tools brand icon",
     core_title: "Core Capabilities",
     core_1: "Auto capture, search, categorize, and refill text clipboard items",
     core_2: "Image clipboard thumbnails, double-click refill, and fullscreen preview",
@@ -254,6 +261,11 @@ const applyLanguage = () => {
     const key = node.getAttribute("data-i18n-aria-label")
     if (!key) continue
     node.setAttribute("aria-label", getText(key))
+  }
+  for (const node of i18nAltNodes) {
+    const key = node.getAttribute("data-i18n-alt")
+    if (!key) continue
+    node.setAttribute("alt", getText(key))
   }
   const galleryAltKeys = ["gallery_alt_1", "gallery_alt_2", "gallery_alt_3", "gallery_alt_4", "gallery_alt_5", "gallery_alt_6"]
   lightboxAltTriggers.forEach((trigger, index) => {
