@@ -1,0 +1,17 @@
+{
+  "name": "fuyun_tools",
+  "short_name": "fuyun_tools",
+  "description": "跨平台剪贴板管理与 Windows AI 划词效率工具",
+  "start_url": "/fuyun_tools_site/?lang=zh",
+  "scope": "/fuyun_tools_site/",
+  "display": "standalone",
+  "background_color": "#060912",
+  "theme_color": "#060912",
+  "icons": [
+    {
+      "src": "/fuyun_tools_site/images/128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}

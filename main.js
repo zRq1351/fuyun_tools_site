@@ -17,6 +17,7 @@ for (const anchor of document.querySelectorAll('a[href^="#"]')) {
 const lightbox = document.querySelector("#lightbox")
 const lightboxImage = document.querySelector(".lightbox-image")
 const lightboxClose = document.querySelector(".lightbox-close")
+const backToTopButton = document.querySelector(".back-to-top")
 
 const openLightbox = (src, alt) => {
   if (!lightbox || !lightboxImage) return
@@ -59,6 +60,20 @@ document.addEventListener("keydown", (event) => {
     closeLightbox()
   }
 })
+
+const updateBackToTopVisibility = () => {
+  if (!backToTopButton) return
+  const visible = window.scrollY > 380
+  backToTopButton.classList.toggle("is-visible", visible)
+}
+
+if (backToTopButton) {
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  })
+  window.addEventListener("scroll", updateBackToTopVisibility, { passive: true })
+  updateBackToTopVisibility()
+}
 
 const LANG_STORAGE_KEY = "fuyun_tools_site_lang"
 const langButtons = document.querySelectorAll(".lang-btn")
@@ -142,6 +157,7 @@ const i18nMap = {
     cta_desc: "下载发布包，首次运行后自动生成配置。在设置中配置模型与 API Key 即可开始 AI 划词。",
     view_guide: "查看使用说明",
     github_repo: "GitHub 仓库",
+    back_to_top_label: "回到顶部",
     close_preview: "关闭预览",
     download_latest_exe: "下载最新版（Windows .exe）",
     version_loading: "加载中...",
@@ -226,6 +242,7 @@ const i18nMap = {
     cta_desc: "Download the release package. Settings are generated on first run. Configure model and API key to start AI selection.",
     view_guide: "View Guide",
     github_repo: "GitHub Repository",
+    back_to_top_label: "Back to top",
     close_preview: "Close Preview",
     download_latest_exe: "Download Latest (Windows .exe)",
     version_loading: "Loading...",
@@ -241,6 +258,7 @@ const i18nMap = {
   }
 }
 
+const SITE_BASE_URL = "https://zrq1351.github.io/fuyun_tools_site/"
 let currentLang = "zh"
 let latestReleaseState = {
   tagName: "",
@@ -249,6 +267,21 @@ let latestReleaseState = {
 }
 
 const getText = (key) => i18nMap[currentLang]?.[key] || i18nMap.zh[key] || key
+const buildLanguageUrl = (lang) => `${SITE_BASE_URL}?lang=${lang}`
+
+const syncSeoLanguageUrls = () => {
+  const canonical = document.querySelector('link[rel="canonical"]')
+  const alternateZh = document.querySelector('link[rel="alternate"][hreflang="zh-CN"]')
+  const alternateEn = document.querySelector('link[rel="alternate"][hreflang="en"]')
+  const ogUrlMeta = document.querySelector('meta[property="og:url"]')
+  const ogLocaleMeta = document.querySelector('meta[property="og:locale"]')
+  const targetUrl = buildLanguageUrl(currentLang)
+  if (canonical) canonical.setAttribute("href", targetUrl)
+  if (alternateZh) alternateZh.setAttribute("href", buildLanguageUrl("zh"))
+  if (alternateEn) alternateEn.setAttribute("href", buildLanguageUrl("en"))
+  if (ogUrlMeta) ogUrlMeta.setAttribute("content", targetUrl)
+  if (ogLocaleMeta) ogLocaleMeta.setAttribute("content", currentLang === "en" ? "en_US" : "zh_CN")
+}
 
 const applyLanguage = () => {
   document.documentElement.lang = currentLang === "en" ? "en" : "zh-CN"
@@ -284,6 +317,7 @@ const applyLanguage = () => {
   if (ogDescriptionMeta) ogDescriptionMeta.setAttribute("content", getText("og_desc"))
   if (twitterTitleMeta) twitterTitleMeta.setAttribute("content", getText("doc_title"))
   if (twitterDescriptionMeta) twitterDescriptionMeta.setAttribute("content", getText("og_desc"))
+  syncSeoLanguageUrls()
   for (const button of langButtons) {
     button.classList.toggle("is-active", button.getAttribute("data-lang") === currentLang)
   }
@@ -365,8 +399,12 @@ const loadLatestReleaseInfo = async () => {
 }
 
 const initializeLanguage = () => {
+  const searchParams = new URLSearchParams(window.location.search)
+  const queryLang = searchParams.get("lang")
   const storedLang = localStorage.getItem(LANG_STORAGE_KEY)
-  if (storedLang === "en" || storedLang === "zh") {
+  if (queryLang === "en" || queryLang === "zh") {
+    currentLang = queryLang
+  } else if (storedLang === "en" || storedLang === "zh") {
     currentLang = storedLang
   }
   applyLanguage()
@@ -378,6 +416,8 @@ const initializeLanguage = () => {
       if (nextLang === currentLang) return
       currentLang = nextLang
       localStorage.setItem(LANG_STORAGE_KEY, currentLang)
+      const target = buildLanguageUrl(currentLang)
+      window.history.replaceState({}, "", target)
       applyLanguage()
       applyReleaseUi()
     })
