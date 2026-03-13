@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zrq1351.github.io/fuyun_tools_site/sitemap.xml
