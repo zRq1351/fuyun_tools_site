@@ -18,6 +18,20 @@
   box-sizing: border-box;
 }
 
+/* Custom scrollbar - 由JavaScript实现，此处仅隐藏原生滚动条 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
 html,
 body {
   margin: 0;
@@ -799,12 +813,12 @@ th {
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(99, 178, 255, 0.9);
+  width: 6px;
+  height: 6px;
+  background: rgba(99, 178, 255, 1);
   border-radius: 50%;
   animation: particle-float linear infinite;
-  box-shadow: 0 0 10px rgba(99, 178, 255, 0.8), 0 0 20px rgba(99, 178, 255, 0.4);
+  box-shadow: 0 0 15px rgba(99, 178, 255, 1), 0 0 30px rgba(99, 178, 255, 0.6), 0 0 45px rgba(99, 178, 255, 0.3);
 }
 
 @keyframes particle-float {
