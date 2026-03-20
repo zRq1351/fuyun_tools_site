@@ -258,7 +258,7 @@ const i18nMap = {
   }
 }
 
-const SITE_BASE_URL = "https://zrq1351.github.io/fuyun_tools_site/"
+const SITE_BASE_URL = window.location.origin + window.location.pathname
 let currentLang = "zh"
 let latestReleaseState = {
   tagName: "",
@@ -426,3 +426,227 @@ const initializeLanguage = () => {
 
 initializeLanguage()
 loadLatestReleaseInfo()
+
+// Particle animation system
+function createParticles() {
+  const particlesContainer = document.createElement('div')
+  particlesContainer.className = 'particles'
+  document.body.appendChild(particlesContainer)
+
+  function createParticle() {
+    const particle = document.createElement('div')
+    particle.className = 'particle'
+    
+    // Random starting position
+    particle.style.left = Math.random() * 100 + '%'
+    particle.style.animationDuration = (Math.random() * 10 + 8) + 's'
+    particle.style.animationDelay = Math.random() * 5 + 's'
+    
+    // Random size
+    const size = Math.random() * 3 + 1
+    particle.style.width = size + 'px'
+    particle.style.height = size + 'px'
+    
+    // Random opacity
+    particle.style.opacity = Math.random() * 0.5 + 0.2
+    
+    particlesContainer.appendChild(particle)
+    
+    // Remove particle after animation
+    setTimeout(() => {
+      if (particle.parentNode) {
+        particle.parentNode.removeChild(particle)
+      }
+    }, 15000)
+  }
+
+  // Create particles continuously
+  setInterval(createParticle, 300)
+  
+  // Create initial particles
+  for (let i = 0; i < 20; i++) {
+    setTimeout(createParticle, i * 100)
+  }
+}
+
+// Intersection Observer for scroll animations
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible')
+      }
+    })
+  }, observerOptions)
+
+  // Observe all sections
+  document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section)
+  })
+}
+
+// Enhanced cursor trail effect
+function createCursorTrail() {
+  const trail = []
+  const trailLength = 8
+
+  for (let i = 0; i < trailLength; i++) {
+    const dot = document.createElement('div')
+    dot.style.cssText = `
+      position: fixed;
+      width: ${4 - i * 0.5}px;
+      height: ${4 - i * 0.5}px;
+      background: rgba(99, 178, 255, ${0.6 - i * 0.08});
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform ${0.1 + i * 0.02}s ease;
+      box-shadow: 0 0 ${6 - i}px rgba(99, 178, 255, 0.4);
+    `
+    document.body.appendChild(dot)
+    trail.push(dot)
+  }
+
+  let mouseX = 0
+  let mouseY = 0
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX
+    mouseY = e.clientY
+  })
+
+  function animateTrail() {
+    let x = mouseX
+    let y = mouseY
+
+    trail.forEach((dot, index) => {
+      const nextDot = trail[index + 1] || trail[0]
+      
+      dot.style.left = x + 'px'
+      dot.style.top = y + 'px'
+      dot.style.transform = `translate(-50%, -50%)`
+
+      if (nextDot) {
+        x += (parseFloat(nextDot.style.left) - x) * 0.3
+        y += (parseFloat(nextDot.style.top) - y) * 0.3
+      }
+    })
+
+    requestAnimationFrame(animateTrail)
+  }
+
+  animateTrail()
+}
+
+// Typing effect for hero title
+function addTypingEffect() {
+  const heroTitle = document.querySelector('h1')
+  if (!heroTitle) return
+
+  const cursor = document.createElement('span')
+  cursor.className = 'typing-cursor'
+  heroTitle.appendChild(cursor)
+}
+
+// Parallax effect for hero section
+function initParallax() {
+  const hero = document.querySelector('.hero')
+  if (!hero) return
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset
+    const rate = scrolled * -0.5
+    
+    hero.style.transform = `translateY(${rate}px)`
+  })
+}
+
+// Enhanced button hover effects
+function enhanceButtons() {
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mouseenter', function(e) {
+      const ripple = document.createElement('span')
+      ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+      `
+      
+      const rect = this.getBoundingClientRect()
+      const size = Math.max(rect.width, rect.height)
+      ripple.style.width = ripple.style.height = size + 'px'
+      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px'
+      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px'
+      
+      this.style.position = 'relative'
+      this.style.overflow = 'hidden'
+      this.appendChild(ripple)
+      
+      setTimeout(() => ripple.remove(), 600)
+    })
+  })
+
+  // Add ripple animation CSS
+  const style = document.createElement('style')
+  style.textContent = `
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  `
+  document.head.appendChild(style)
+}
+
+// Glowing effect for cards
+function addCardGlow() {
+  document.querySelectorAll('.card, .usage-step, .arch-item').forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      
+      this.style.background = `
+        radial-gradient(circle at ${x}px ${y}px, rgba(99, 178, 255, 0.1), transparent 50%),
+        rgba(15, 24, 50, 0.76)
+      `
+    })
+
+    card.addEventListener('mouseleave', function() {
+      this.style.background = 'rgba(15, 24, 50, 0.76)'
+    })
+  })
+}
+
+// Initialize all enhancements
+function initEnhancements() {
+  createParticles()
+  initScrollAnimations()
+  addTypingEffect()
+  enhanceButtons()
+  addCardGlow()
+  
+  // Delay cursor trail for better performance
+  setTimeout(createCursorTrail, 1000)
+  
+  // Only add parallax on non-mobile devices
+  if (window.innerWidth > 768) {
+    initParallax()
+  }
+}
+
+// Run when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initEnhancements)
+} else {
+  initEnhancements()
+}

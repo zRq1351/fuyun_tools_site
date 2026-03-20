@@ -9,6 +9,9 @@
   --primary-strong: #4e92ff;
   --border: #2f3f72;
   --maxw: 1120px;
+  --glow-primary: rgba(99, 178, 255, 0.6);
+  --glow-secondary: rgba(108, 255, 237, 0.5);
+  --glow-accent: rgba(255, 107, 157, 0.5);
 }
 
 * {
@@ -780,6 +783,318 @@ th {
   100% {
     transform: translate3d(0, 0, 0);
   }
+}
+
+/* Particle animation background */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(99, 178, 255, 0.6);
+  border-radius: 50%;
+  animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow: 0 0 10px var(--glow-primary), 0 0 20px var(--glow-primary), 0 0 30px var(--glow-primary);
+}
+
+/* Enhanced card animations */
+.card {
+  animation: card-appear 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes card-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animated gradient border */
+.animated-border {
+  position: relative;
+  background: linear-gradient(135deg, rgba(99, 178, 255, 0.1), rgba(108, 255, 237, 0.1));
+  border-radius: 16px;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--primary), var(--glow-secondary), var(--primary));
+  background-size: 200% 200%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradient-border 3s ease infinite;
+}
+
+@keyframes gradient-border {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Typing effect for hero title */
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--primary);
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Pulse animation for buttons */
+.btn-primary {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 10px 24px rgba(71, 142, 255, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  }
+  50% {
+    box-shadow: 0 10px 24px rgba(71, 142, 255, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 0 20px var(--glow-primary);
+  }
+}
+
+/* Enhanced hero section */
+.hero {
+  position: relative;
+}
+
+.hero-grid > div:first-child {
+  animation: slide-in-left 0.8s ease-out;
+}
+
+.hero-grid > div:last-child {
+  animation: slide-in-right 0.8s ease-out;
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Floating tech elements */
+.tech-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.3;
+  animation: orb-float 8s ease-in-out infinite;
+}
+
+.tech-orb-1 {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--primary), var(--glow-secondary));
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.tech-orb-2 {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--glow-secondary), var(--glow-accent));
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.tech-orb-3 {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--glow-accent), var(--primary));
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-10px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(30px, 10px) scale(1.05);
+  }
+}
+
+/* Section reveal animation */
+.section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced navigation */
+.nav-links a {
+  position: relative;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(99, 178, 255, 0.1);
+  color: #d8eeff;
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--glow-secondary));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+}
+
+/* Glowing card effect */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(99, 178, 255, 0.05), rgba(108, 255, 237, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced table */
+.table-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.table-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--glow-secondary), transparent);
+}
+
+/* Animated architecture items */
+.arch-item {
+  transition: all 0.4s ease;
+}
+
+.arch-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(113, 200, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(4, 11, 24, 0.5);
+}
+
+/* Footer enhancement */
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--glow-secondary), transparent);
 }
 
 .footer-wrap {
