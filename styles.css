@@ -1,8 +1,8 @@
 :root {
   color-scheme: light;
-  --bg: #060912;
-  --panel: #0f1730;
-  --panel-soft: #111b39;
+  --bg: #0a0f1c;
+  --panel: #111a2e;
+  --panel-soft: #152038;
   --text: #e9eefc;
   --muted: #a9b5d6;
   --primary: #63b2ff;
@@ -794,16 +794,17 @@ th {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
 }
 
 .particle {
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(99, 178, 255, 0.6);
+  width: 4px;
+  height: 4px;
+  background: rgba(99, 178, 255, 0.9);
   border-radius: 50%;
   animation: particle-float linear infinite;
+  box-shadow: 0 0 10px rgba(99, 178, 255, 0.8), 0 0 20px rgba(99, 178, 255, 0.4);
 }
 
 @keyframes particle-float {
@@ -948,36 +949,40 @@ th {
 .tech-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.3;
+  filter: blur(20px);
+  opacity: 0.8;
   animation: orb-float 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .tech-orb-1 {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   background: linear-gradient(135deg, var(--primary), var(--glow-secondary));
-  top: 20%;
-  left: 10%;
+  top: 15%;
+  left: 5%;
   animation-delay: 0s;
+  box-shadow: 0 0 60px var(--glow-primary);
 }
 
 .tech-orb-2 {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background: linear-gradient(135deg, var(--glow-secondary), var(--glow-accent));
-  top: 60%;
-  right: 15%;
+  top: 55%;
+  right: 10%;
   animation-delay: 2s;
+  box-shadow: 0 0 50px var(--glow-secondary);
 }
 
 .tech-orb-3 {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   background: linear-gradient(135deg, var(--glow-accent), var(--primary));
-  bottom: 30%;
-  left: 20%;
+  bottom: 25%;
+  left: 15%;
   animation-delay: 4s;
+  box-shadow: 0 0 40px var(--glow-accent);
 }
 
 @keyframes orb-float {
@@ -1152,5 +1157,460 @@ th {
   .back-to-top {
     right: 14px;
     bottom: 14px;
+  }
+}
+
+/* Ultra Tech Effects - 超级科技效果 */
+
+
+/* Holographic projection effect - 全息投影效果 */
+.hologram {
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(99, 178, 255, 0.15), 
+    rgba(108, 255, 237, 0.1), 
+    rgba(255, 107, 157, 0.12));
+  animation: hologram-flicker 4s ease-in-out infinite;
+}
+
+.hologram::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(99, 178, 255, 0.08) 2px,
+    rgba(99, 178, 255, 0.08) 4px
+  );
+  animation: scan-lines 0.1s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes hologram-flicker {
+  0%, 100% {
+    opacity: 1;
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    opacity: 0.95;
+    filter: hue-rotate(5deg);
+  }
+  50% {
+    opacity: 1;
+    filter: hue-rotate(-5deg);
+  }
+  75% {
+    opacity: 0.98;
+    filter: hue-rotate(3deg);
+  }
+}
+
+@keyframes scan-lines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4px);
+  }
+}
+
+/* Data flow animation - 数据流动动画 */
+.data-flow {
+  position: relative;
+  overflow: hidden;
+}
+
+.data-flow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(99, 178, 255, 0.2), 
+    rgba(108, 255, 237, 0.25), 
+    rgba(99, 178, 255, 0.2), 
+    transparent);
+  animation: data-stream 3s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes data-stream {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Neon glow text - 霓虹灯文字 */
+.neon-text {
+  color: var(--text);
+  text-shadow: 
+    0 0 5px var(--primary),
+    0 0 10px var(--primary),
+    0 0 20px var(--primary),
+    0 0 40px var(--glow-primary),
+    0 0 80px var(--glow-primary);
+  animation: neon-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-pulse {
+  from {
+    text-shadow: 
+      0 0 5px var(--primary),
+      0 0 10px var(--primary),
+      0 0 20px var(--primary),
+      0 0 40px var(--glow-primary),
+      0 0 80px var(--glow-primary);
+  }
+  to {
+    text-shadow: 
+      0 0 2px var(--primary),
+      0 0 5px var(--primary),
+      0 0 10px var(--primary),
+      0 0 20px var(--glow-primary),
+      0 0 40px var(--glow-primary);
+  }
+}
+
+/* Glitch effect - 故障艺术效果 */
+.glitch {
+  position: relative;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-effect 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: var(--glow-accent);
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  transform: translate(-2px);
+}
+
+.glitch::after {
+  animation: glitch-effect 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+  color: var(--glow-secondary);
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translate(2px);
+}
+
+@keyframes glitch-effect {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+  20% {
+    transform: skew(0.5deg);
+  }
+  40% {
+    transform: skew(-0.5deg);
+  }
+  60% {
+    transform: skew(0.3deg);
+  }
+  80% {
+    transform: skew(-0.3deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+/* Matrix rain effect - 矩阵雨效果 */
+.matrix-rain {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-rain::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(180deg, 
+      transparent 0%, 
+      rgba(99, 178, 255, 0.15) 25%,
+      rgba(108, 255, 237, 0.1) 50%, 
+      rgba(99, 178, 255, 0.15) 75%,
+      transparent 100%);
+  animation: matrix-fall 1.5s linear infinite;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Cyberpunk grid - 赛博朋克网格 */
+.cyber-grid {
+  position: relative;
+  background-image: 
+    linear-gradient(rgba(99, 178, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 178, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: grid-pulse 4s ease-in-out infinite;
+}
+
+.cyber-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, var(--bg) 70%);
+  pointer-events: none;
+}
+
+@keyframes grid-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    background-size: 20px 20px;
+  }
+  50% {
+    opacity: 0.6;
+    background-size: 25px 25px;
+  }
+}
+
+/* Energy waves - 能量波纹 */
+.energy-wave {
+  position: relative;
+}
+
+.energy-wave::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, 
+    rgba(99, 178, 255, 0.1) 0%, 
+    transparent 30%);
+  transform: translate(-50%, -50%);
+  animation: energy-ripple 3s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes energy-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Circuit lines - 电路线条 */
+.circuit-lines {
+  position: relative;
+}
+
+.circuit-lines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 48%, rgba(99, 178, 255, 0.1) 49%, rgba(99, 178, 255, 0.1) 51%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(99, 178, 255, 0.1) 49%, rgba(99, 178, 255, 0.1) 51%, transparent 52%);
+  background-size: 40px 40px;
+  animation: circuit-flow 2s linear infinite;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+@keyframes circuit-flow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+/* 3D card effect */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(10px);
+}
+
+/* Rainbow border - 彩虹边框 */
+.rainbow-border {
+  position: relative;
+  background: var(--panel);
+  border-radius: 16px;
+}
+
+.rainbow-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, 
+    var(--primary), 
+    var(--glow-secondary), 
+    var(--glow-accent), 
+    var(--primary));
+  background-size: 300% 300%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: rainbow-shift 3s ease infinite;
+}
+
+@keyframes rainbow-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Pulse rings - 脉冲光环 */
+.pulse-rings {
+  position: relative;
+}
+
+.pulse-rings::before,
+.pulse-rings::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.pulse-rings::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Floating hexagons - 浮动六边形 */
+.hex-pattern {
+  position: relative;
+}
+
+.hex-pattern::after {
+  content: "⬡";
+  position: absolute;
+  font-size: 30px;
+  color: rgba(99, 178, 255, 0.1);
+  top: 10%;
+  right: 10%;
+  animation: hex-float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hex-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+/* Enhanced hero with ultra effects */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    conic-gradient(from 0deg at 50% 50%, 
+      transparent 0deg, 
+      rgba(99, 178, 255, 0.25) 60deg, 
+      transparent 120deg, 
+      rgba(108, 255, 237, 0.25) 180deg, 
+      transparent 240deg, 
+      rgba(255, 107, 157, 0.25) 300deg, 
+      transparent 360deg);
+  animation: ultra-rotate 12s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes ultra-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

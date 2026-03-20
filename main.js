@@ -442,14 +442,6 @@ function createParticles() {
     particle.style.animationDuration = (Math.random() * 10 + 8) + 's'
     particle.style.animationDelay = Math.random() * 5 + 's'
     
-    // Random size
-    const size = Math.random() * 3 + 1
-    particle.style.width = size + 'px'
-    particle.style.height = size + 'px'
-    
-    // Random opacity
-    particle.style.opacity = Math.random() * 0.5 + 0.2
-    
     particlesContainer.appendChild(particle)
     
     // Remove particle after animation
