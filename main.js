@@ -95,10 +95,10 @@ const i18nMap = {
     nav_platform: "平台",
     nav_architecture: "架构",
     github_repo_label: "GitHub 仓库",
-    hero_badge: "Windows AI 划词 + 跨平台剪贴板管理",
-    hero_title: "把剪贴板和 AI 划词，做成一条真正可用的效率链路",
+    hero_badge: "Windows AI 划词 + 截图 OCR + 跨平台剪贴板管理",
+    hero_title: "把剪贴板、截图 OCR 和 AI 划词，做成一条真正可用的效率链路",
     hero_desc:
-      "fuyun_tools 常驻系统托盘，通过统一快捷键管理文字与图片历史；在 Windows 上进一步打通选词、翻译、解释、复制的完整路径。",
+      "fuyun_tools 常驻系统托盘，通过统一快捷键管理文字与图片历史；在 Windows 上进一步打通选词翻译、快捷截图与图片 OCR 识别的完整路径。",
     view_source: "查看源码",
     meta_stack: "技术栈：Vue 3 + Element Plus + Tauri 2 + Rust",
     meta_ai_sdk: "AI SDK：async-openai（OpenAI 兼容）",
@@ -110,6 +110,7 @@ const i18nMap = {
     core_1: "文本剪贴板自动记录、搜索、分类、回填",
     core_2: "图片剪贴板缩略图管理、双击回填、全屏预览",
     core_3: "Windows 划词工具栏支持翻译 / 解释 / 复制",
+    core_6: "Windows 固定图片窗口支持右键触发 OCR 识别",
     core_4: "支持 DeepSeek、通义千问、小米 Mimo 与自定义 OpenAI 兼容服务",
     core_5: "全局热键、托盘菜单、开机自启、应用更新",
     features_title: "功能模块",
@@ -122,25 +123,25 @@ const i18nMap = {
     feature_3_title: "AI 划词助手",
     feature_3_desc:
       "Windows 下监听文本选择与鼠标事件，自动弹出工具栏并流式输出翻译或解释结果。",
+    feature_7_title: "图片 OCR",
+    feature_7_desc:
+      "固定图片窗口支持右键触发 OCR 识别，并在独立文本窗口展示结果，目前仅在 Windows 可用。",
     feature_4_title: "AI 服务配置",
     feature_4_desc:
       "内置多提供商并支持自定义服务，API Key 本地加密保存，提供连接测试能力。",
     feature_5_title: "系统集成",
     feature_5_desc:
       "应用常驻托盘，支持热键唤起文本/图片窗口，具备自动更新与开机自启。",
-    feature_6_title: "数据与安全",
-    feature_6_desc:
-      "历史记录与配置本地存储，生产环境默认不落日志文件，降低敏感信息暴露风险。",
     usage_title: "软件使用流程",
-    usage_1_title: "启动与唤出",
-    usage_1_desc: "启动后常驻托盘，使用 Ctrl+Shift+Z 快速打开剪贴板窗口。",
-    usage_2_title: "快速回填",
-    usage_2_desc: "通过方向键、回车或双击，选择历史项并回填到当前焦点应用。",
-    usage_3_title: "AI 划词处理",
-    usage_3_desc: "Windows 选中文本后自动弹出工具栏，一键翻译、解释与复制。",
-    usage_4_title: "配置模型与策略",
+    usage_1_title: "基础配置与启动",
+    usage_1_desc: "启动后常驻托盘，建议首先进入设置配置 AI 服务与模型，同时可按需调整历史上限和分类策略。",
+    usage_2_title: "文本与图片剪贴板",
+    usage_2_desc: "使用 Ctrl+Shift+Z/X 快速唤出文字/图片窗口，通过方向键、回车或双击快速回填到当前焦点应用。",
+    usage_3_title: "AI 划词助手",
+    usage_3_desc: "Windows 任意应用中选中文本自动弹出工具栏，支持一键翻译、解释、复制及流式结果展示。",
+    usage_4_title: "图片 OCR 识别",
     usage_4_desc:
-      "在设置中配置 AI Provider 与模型，同时调整历史上限和分类策略。",
+      "Windows 专属功能，在固定的图片窗口中右键触发 OCR 识别，快速提取图片中的文字内容。",
     gallery_title: "界面预览",
     gallery_desc: "以下为软件真实界面截图，展示核心工作流与窗口体验。",
     gallery_1: "文本剪贴板窗口",
@@ -152,6 +153,7 @@ const i18nMap = {
     platform_title: "平台兼容性",
     table_feature: "功能",
     table_clipboard: "剪贴板管理",
+    table_ocr: "图片 OCR",
     table_ai_selection: "AI 划词",
     table_tray_hotkey: "托盘与热键",
     arch_title: "实现架构",
@@ -184,8 +186,8 @@ const i18nMap = {
     gallery_alt_6: "fuyun_tools 设置页面",
     doc_title: "fuyun_tools - 系统托盘效率工具",
     doc_desc:
-      "fuyun_tools 是一款集剪贴板历史管理与 Windows AI 划词能力于一体的桌面效率工具。",
-    og_desc: "统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译与解释。",
+      "fuyun_tools 是一款集剪贴板历史管理、快捷截图与图片 OCR、Windows AI 划词能力于一体的桌面效率工具。",
+    og_desc: "统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译与图片 OCR 识别。",
   },
   en: {
     nav_features: "Features",
@@ -194,10 +196,10 @@ const i18nMap = {
     nav_platform: "Platforms",
     nav_architecture: "Architecture",
     github_repo_label: "GitHub Repository",
-    hero_badge: "Windows AI Text Selection + Cross-platform Clipboard",
-    hero_title: "Turn Clipboard and AI Selection into One Efficient Workflow",
+    hero_badge: "Windows AI Text Selection + Screenshot OCR + Cross-platform Clipboard",
+    hero_title: "Turn Clipboard, Screenshot OCR and AI Selection into One Efficient Workflow",
     hero_desc:
-      "fuyun_tools runs in the system tray, unifies text and image clipboard history with hotkeys, and completes selection → translate/explain → copy on Windows.",
+      "fuyun_tools runs in the system tray, unifies text and image clipboard history with hotkeys, and completes selection → translate/explain and screenshot → OCR on Windows.",
     view_source: "View Source",
     meta_stack: "Stack: Vue 3 + Element Plus + Tauri 2 + Rust",
     meta_ai_sdk: "AI SDK: async-openai (OpenAI compatible)",
@@ -211,6 +213,7 @@ const i18nMap = {
     core_2:
       "Image clipboard thumbnails, double-click refill, and fullscreen preview",
     core_3: "Windows selection toolbar for translate / explain / copy",
+    core_6: "Windows image window supports right-click OCR text extraction",
     core_4:
       "DeepSeek, Qwen, Xiaomi Mimo, and custom OpenAI-compatible providers",
     core_5: "Global hotkeys, tray menu, auto-start, and in-app update",
@@ -224,28 +227,28 @@ const i18nMap = {
     feature_3_title: "AI Selection Assistant",
     feature_3_desc:
       "On Windows, listens to text selection and mouse events, then streams translation/explanation results.",
+    feature_7_title: "Image OCR",
+    feature_7_desc:
+      "Right-click in the pinned image window to trigger OCR, with results displayed in a standalone text window (Windows only).",
     feature_4_title: "AI Provider Config",
     feature_4_desc:
       "Built-in providers plus custom services, encrypted local API key storage, and connection testing.",
     feature_5_title: "System Integration",
     feature_5_desc:
       "Tray-resident app with global hotkeys for text/image windows, auto-update, and auto-start.",
-    feature_6_title: "Data & Security",
-    feature_6_desc:
-      "Local-only storage for history and settings, with safer logging defaults in production.",
     usage_title: "Usage Flow",
-    usage_1_title: "Launch & Open",
+    usage_1_title: "Basic Config & Launch",
     usage_1_desc:
-      "Run in tray and press Ctrl+Shift+Z to open clipboard window quickly.",
-    usage_2_title: "Quick Refill",
+      "Runs in tray after launch. It's recommended to configure AI provider and model in settings first, and adjust history limits and strategies as needed.",
+    usage_2_title: "Text & Image Clipboard",
     usage_2_desc:
-      "Use arrow keys, Enter, or double-click to refill selected history item.",
-    usage_3_title: "AI Selection",
+      "Use Ctrl+Shift+Z/X to quick open text/image windows. Refill to focused app via arrow keys, Enter or double-click.",
+    usage_3_title: "AI Selection Assistant",
     usage_3_desc:
-      "Select text on Windows to open toolbar and trigger translate/explain/copy in one click.",
-    usage_4_title: "Model & Policy",
+      "Select text in any Windows app to auto-pop toolbar, supporting one-click translate, explain, copy and streaming results.",
+    usage_4_title: "Image OCR Extraction",
     usage_4_desc:
-      "Configure AI provider/model and tune history limits and grouping strategy in settings.",
+      "Windows exclusive feature. Right-click in the pinned image window to trigger OCR and quickly extract text from images.",
     gallery_title: "UI Preview",
     gallery_desc: "Real screenshots of the product workflow and core windows.",
     gallery_1: "Text Clipboard Window",
@@ -257,6 +260,7 @@ const i18nMap = {
     platform_title: "Platform Compatibility",
     table_feature: "Feature",
     table_clipboard: "Clipboard Manager",
+    table_ocr: "Image OCR",
     table_ai_selection: "AI Text Selection",
     table_tray_hotkey: "Tray & Hotkeys",
     arch_title: "Architecture",
@@ -289,9 +293,9 @@ const i18nMap = {
     gallery_alt_6: "fuyun_tools settings page",
     doc_title: "fuyun_tools - Tray Productivity Tool",
     doc_desc:
-      "fuyun_tools is a desktop productivity tool combining clipboard history management and Windows AI text selection.",
+      "fuyun_tools is a desktop productivity tool combining clipboard history management, screenshot OCR, and Windows AI text selection.",
     og_desc:
-      "Manage text and image clipboard in one place and run AI translation/explanation for selected text on Windows.",
+      "Manage text and image clipboard in one place and run AI translation/explanation and image OCR on Windows.",
   },
 };
 
