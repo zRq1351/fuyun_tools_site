@@ -92,10 +92,9 @@ const i18nMap = {
     nav_features: "功能",
     nav_usage: "使用",
     nav_gallery: "界面",
-    nav_platform: "平台",
     nav_architecture: "架构",
     github_repo_label: "GitHub 仓库",
-    hero_badge: "Windows AI 划词 + 截图录屏 OCR + 跨平台剪贴板管理",
+    hero_badge: "Windows AI 划词 + 截图录屏 OCR + 剪贴板管理",
     hero_title: "把剪贴板、截图录屏 OCR 和 AI 划词，做成一条真正可用的效率链路",
     hero_desc:
       "fuyun_tools 常驻系统托盘，通过统一快捷键管理文字与图片历史；在 Windows 上进一步打通选词翻译、快捷截图录屏与图片 OCR 识别的完整路径。",
@@ -155,13 +154,6 @@ const i18nMap = {
     gallery_4: "划词工具栏",
     gallery_5: "AI 结果窗口",
     gallery_6: "设置页（AI 配置）",
-    platform_title: "平台兼容性",
-    table_feature: "功能",
-    table_clipboard: "剪贴板管理",
-    table_ocr: "图片 OCR",
-    table_screen_recording: "录屏功能",
-    table_ai_selection: "AI 划词",
-    table_tray_hotkey: "托盘与热键",
     arch_title: "实现架构",
     arch_1_title: "前端层",
     arch_1_desc:
@@ -200,11 +192,10 @@ const i18nMap = {
     nav_features: "Features",
     nav_usage: "Workflow",
     nav_gallery: "Screenshots",
-    nav_platform: "Platforms",
     nav_architecture: "Architecture",
     github_repo_label: "GitHub Repository",
     hero_badge:
-      "Windows AI Text Selection + Screenshot/Screen Recording OCR + Cross-platform Clipboard",
+      "Windows AI Text Selection + Screenshot/Screen Recording OCR + Clipboard Management",
     hero_title:
       "Turn Clipboard, Screenshot/Screen Recording OCR and AI Selection into One Efficient Workflow",
     hero_desc:
@@ -271,13 +262,6 @@ const i18nMap = {
     gallery_4: "Selection Toolbar",
     gallery_5: "AI Result Window",
     gallery_6: "Settings (AI Config)",
-    platform_title: "Platform Compatibility",
-    table_feature: "Feature",
-    table_clipboard: "Clipboard Manager",
-    table_ocr: "Image OCR",
-    table_screen_recording: "Screen Recording",
-    table_ai_selection: "AI Text Selection",
-    table_tray_hotkey: "Tray & Hotkeys",
     arch_title: "Architecture",
     arch_1_title: "Frontend Layer",
     arch_1_desc:

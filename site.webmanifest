@@ -1,7 +1,7 @@
 {
   "name": "fuyun_tools",
   "short_name": "fuyun_tools",
-  "description": "跨平台剪贴板管理、快捷截图 OCR 与 Windows AI 划词效率工具",
+  "description": "Windows 剪贴板管理、快捷截图录屏 OCR 与 AI 划词效率工具",
   "start_url": "/fuyun_tools_site/?lang=zh",
   "scope": "/fuyun_tools_site/",
   "display": "standalone",
