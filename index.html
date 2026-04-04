@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fuyun_tools - 系统托盘效率工具</title>
-  <meta name="description" content="fuyun_tools 是一款集剪贴板历史管理、快捷截图与图片 OCR、Windows AI 划词能力于一体的桌面效率工具。">
-  <meta name="keywords" content="fuyun_tools,剪贴板管理,AI划词,图片OCR,系统托盘工具,Tauri,桌面效率工具">
+  <meta name="description" content="fuyun_tools 是一款集剪贴板历史管理、快捷截图与录屏、图片 OCR、Windows AI 划词能力于一体的桌面效率工具。">
+  <meta name="keywords" content="fuyun_tools,剪贴板管理,AI划词,图片OCR,录屏,系统托盘工具,Tauri,桌面效率工具">
   <meta name="author" content="zRq1351">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -20,7 +20,7 @@
   <meta property="og:locale" content="zh_CN">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="fuyun_tools - 系统托盘效率工具">
-  <meta property="og:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译与图片 OCR 识别。">
+  <meta property="og:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、录屏音频采集与图片 OCR 识别。">
   <meta property="og:url" content="https://zrq1351.github.io/fuyun_tools_site/?lang=zh">
   <meta property="og:image" content="https://zrq1351.github.io/fuyun_tools_site/images/128x128.png">
   <meta property="og:image:type" content="image/png">
@@ -29,7 +29,7 @@
   <meta property="og:image:alt" content="fuyun_tools 品牌图标">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="fuyun_tools - 系统托盘效率工具">
-  <meta name="twitter:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译与图片 OCR 识别。">
+  <meta name="twitter:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、录屏音频采集与图片 OCR 识别。">
   <meta name="twitter:image" content="https://zrq1351.github.io/fuyun_tools_site/images/128x128.png">
   <meta name="twitter:image:alt" content="fuyun_tools 品牌图标">
   <link rel="icon" type="image/png" href="./images/128x128.png">
@@ -42,7 +42,7 @@
       "name": "fuyun_tools",
       "applicationCategory": "ProductivityApplication",
       "operatingSystem": "Windows, Linux, macOS",
-      "description": "fuyun_tools 是一款集剪贴板历史管理、快捷截图与图片 OCR、Windows AI 划词功能于一体的桌面效率工具。",
+      "description": "fuyun_tools 是一款集剪贴板历史管理、快捷截图与录屏、图片 OCR、Windows AI 划词功能于一体的桌面效率工具。",
       "url": "https://zrq1351.github.io/fuyun_tools_site/",
       "downloadUrl": "https://github.com/zRq1351/fuyun_tools/releases/latest",
       "image": "https://zrq1351.github.io/fuyun_tools_site/images/128x128.png",
@@ -119,10 +119,10 @@
     <section class="hero hologram data-flow">
       <div class="container hero-grid">
         <div>
-          <p class="badge" data-i18n="hero_badge">Windows AI 划词 + 截图 OCR + 跨平台剪贴板管理</p>
-          <h1 data-i18n="hero_title">把剪贴板、截图 OCR 和 AI 划词，做成一条真正可用的效率链路</h1>
+          <p class="badge" data-i18n="hero_badge">Windows AI 划词 + 截图录屏 OCR + 跨平台剪贴板管理</p>
+          <h1 data-i18n="hero_title">把剪贴板、截图录屏 OCR 和 AI 划词，做成一条真正可用的效率链路</h1>
           <p class="hero-desc" data-i18n="hero_desc">
-            fuyun_tools 常驻系统托盘，通过统一快捷键管理文字与图片历史；在 Windows 上进一步打通选词翻译、快捷截图与图片 OCR 识别的完整路径。
+            fuyun_tools 常驻系统托盘，通过统一快捷键管理文字与图片历史；在 Windows 上进一步打通选词翻译、快捷截图录屏与图片 OCR 识别的完整路径。
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary js-latest-exe" href="https://github.com/zRq1351/fuyun_tools/releases/latest" target="_blank" rel="noreferrer">下载最新版（Windows .exe）</a>
@@ -142,6 +142,7 @@
             <li data-i18n="core_2">图片剪贴板缩略图管理、双击回填、全屏预览</li>
             <li data-i18n="core_3">Windows 划词工具栏支持翻译 / 解释 / 复制</li>
             <li data-i18n="core_6">Windows 固定图片窗口支持右键触发 OCR 识别</li>
+            <li data-i18n="core_7">Windows 录屏胶囊支持一键开始 / 暂停 / 恢复 / 停止，并支持系统音频与麦克风采集</li>
             <li data-i18n="core_4">支持 DeepSeek、通义千问、小米 Mimo 与自定义 OpenAI 兼容服务</li>
             <li data-i18n="core_5">全局热键、托盘菜单、开机自启、应用更新</li>
           </ul>
@@ -168,6 +169,10 @@
           <article class="card">
             <h3 data-i18n="feature_7_title">图片 OCR</h3>
             <p data-i18n="feature_7_desc">固定图片窗口支持右键触发 OCR 识别，并在独立文本窗口展示结果，目前仅在 Windows 可用。</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="feature_8_title">录屏与音频采集</h3>
+            <p data-i18n="feature_8_desc">录屏胶囊支持开始/暂停/恢复/停止，支持系统音频与麦克风设备选择，并可配置帧率与码率参数。</p>
           </article>
           <article class="card">
             <h3 data-i18n="feature_4_title">AI 服务配置</h3>
@@ -202,8 +207,8 @@
           </article>
           <article class="usage-step">
             <span class="step-index">04</span>
-            <h3 data-i18n="usage_4_title">图片 OCR 识别</h3>
-            <p data-i18n="usage_4_desc">Windows 专属功能，在固定的图片窗口中右键触发 OCR 识别，快速提取图片中的文字内容。</p>
+            <h3 data-i18n="usage_4_title">录屏与 OCR 链路</h3>
+            <p data-i18n="usage_4_desc">进入设置启用录屏后可通过录屏胶囊开始录制；首次会自动检查并按需下载 ffmpeg，同时仍可通过固定图片窗口右键完成 OCR 识别。</p>
           </article>
         </div>
       </div>
@@ -276,6 +281,12 @@
               </tr>
               <tr>
                 <td data-i18n="table_ocr">图片 OCR</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>❌</td>
+              </tr>
+              <tr>
+                <td data-i18n="table_screen_recording">录屏功能</td>
                 <td>✅</td>
                 <td>❌</td>
                 <td>❌</td>

@@ -95,10 +95,10 @@ const i18nMap = {
     nav_platform: "平台",
     nav_architecture: "架构",
     github_repo_label: "GitHub 仓库",
-    hero_badge: "Windows AI 划词 + 截图 OCR + 跨平台剪贴板管理",
-    hero_title: "把剪贴板、截图 OCR 和 AI 划词，做成一条真正可用的效率链路",
+    hero_badge: "Windows AI 划词 + 截图录屏 OCR + 跨平台剪贴板管理",
+    hero_title: "把剪贴板、截图录屏 OCR 和 AI 划词，做成一条真正可用的效率链路",
     hero_desc:
-      "fuyun_tools 常驻系统托盘，通过统一快捷键管理文字与图片历史；在 Windows 上进一步打通选词翻译、快捷截图与图片 OCR 识别的完整路径。",
+      "fuyun_tools 常驻系统托盘，通过统一快捷键管理文字与图片历史；在 Windows 上进一步打通选词翻译、快捷截图录屏与图片 OCR 识别的完整路径。",
     view_source: "查看源码",
     meta_stack: "技术栈：Vue 3 + Element Plus + Tauri 2 + Rust",
     meta_ai_sdk: "AI SDK：async-openai（OpenAI 兼容）",
@@ -111,6 +111,8 @@ const i18nMap = {
     core_2: "图片剪贴板缩略图管理、双击回填、全屏预览",
     core_3: "Windows 划词工具栏支持翻译 / 解释 / 复制",
     core_6: "Windows 固定图片窗口支持右键触发 OCR 识别",
+    core_7:
+      "Windows 录屏胶囊支持一键开始 / 暂停 / 恢复 / 停止，并支持系统音频与麦克风采集",
     core_4: "支持 DeepSeek、通义千问、小米 Mimo 与自定义 OpenAI 兼容服务",
     core_5: "全局热键、托盘菜单、开机自启、应用更新",
     features_title: "功能模块",
@@ -126,6 +128,9 @@ const i18nMap = {
     feature_7_title: "图片 OCR",
     feature_7_desc:
       "固定图片窗口支持右键触发 OCR 识别，并在独立文本窗口展示结果，目前仅在 Windows 可用。",
+    feature_8_title: "录屏与音频采集",
+    feature_8_desc:
+      "录屏胶囊支持开始/暂停/恢复/停止，支持系统音频与麦克风设备选择，并可配置帧率与码率参数。",
     feature_4_title: "AI 服务配置",
     feature_4_desc:
       "内置多提供商并支持自定义服务，API Key 本地加密保存，提供连接测试能力。",
@@ -139,9 +144,9 @@ const i18nMap = {
     usage_2_desc: "使用 Ctrl+Shift+Z/X 快速唤出文字/图片窗口，通过方向键、回车或双击快速回填到当前焦点应用。",
     usage_3_title: "AI 划词助手",
     usage_3_desc: "Windows 任意应用中选中文本自动弹出工具栏，支持一键翻译、解释、复制及流式结果展示。",
-    usage_4_title: "图片 OCR 识别",
+    usage_4_title: "录屏与 OCR 链路",
     usage_4_desc:
-      "Windows 专属功能，在固定的图片窗口中右键触发 OCR 识别，快速提取图片中的文字内容。",
+      "进入设置启用录屏后可通过录屏胶囊开始录制；首次会自动检查并按需下载 ffmpeg，同时仍可通过固定图片窗口右键完成 OCR 识别。",
     gallery_title: "界面预览",
     gallery_desc: "以下为软件真实界面截图，展示核心工作流与窗口体验。",
     gallery_1: "文本剪贴板窗口",
@@ -154,6 +159,7 @@ const i18nMap = {
     table_feature: "功能",
     table_clipboard: "剪贴板管理",
     table_ocr: "图片 OCR",
+    table_screen_recording: "录屏功能",
     table_ai_selection: "AI 划词",
     table_tray_hotkey: "托盘与热键",
     arch_title: "实现架构",
@@ -186,8 +192,9 @@ const i18nMap = {
     gallery_alt_6: "fuyun_tools 设置页面",
     doc_title: "fuyun_tools - 系统托盘效率工具",
     doc_desc:
-      "fuyun_tools 是一款集剪贴板历史管理、快捷截图与图片 OCR、Windows AI 划词能力于一体的桌面效率工具。",
-    og_desc: "统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译与图片 OCR 识别。",
+      "fuyun_tools 是一款集剪贴板历史管理、快捷截图与录屏、图片 OCR、Windows AI 划词能力于一体的桌面效率工具。",
+    og_desc:
+      "统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、录屏音频采集与图片 OCR 识别。",
   },
   en: {
     nav_features: "Features",
@@ -196,10 +203,12 @@ const i18nMap = {
     nav_platform: "Platforms",
     nav_architecture: "Architecture",
     github_repo_label: "GitHub Repository",
-    hero_badge: "Windows AI Text Selection + Screenshot OCR + Cross-platform Clipboard",
-    hero_title: "Turn Clipboard, Screenshot OCR and AI Selection into One Efficient Workflow",
+    hero_badge:
+      "Windows AI Text Selection + Screenshot/Screen Recording OCR + Cross-platform Clipboard",
+    hero_title:
+      "Turn Clipboard, Screenshot/Screen Recording OCR and AI Selection into One Efficient Workflow",
     hero_desc:
-      "fuyun_tools runs in the system tray, unifies text and image clipboard history with hotkeys, and completes selection → translate/explain and screenshot → OCR on Windows.",
+      "fuyun_tools runs in the system tray, unifies text and image clipboard history with hotkeys, and completes selection → translate/explain and screenshot/screen recording → OCR on Windows.",
     view_source: "View Source",
     meta_stack: "Stack: Vue 3 + Element Plus + Tauri 2 + Rust",
     meta_ai_sdk: "AI SDK: async-openai (OpenAI compatible)",
@@ -214,6 +223,8 @@ const i18nMap = {
       "Image clipboard thumbnails, double-click refill, and fullscreen preview",
     core_3: "Windows selection toolbar for translate / explain / copy",
     core_6: "Windows image window supports right-click OCR text extraction",
+    core_7:
+      "Windows recording capsule supports start/pause/resume/stop with system and microphone audio capture",
     core_4:
       "DeepSeek, Qwen, Xiaomi Mimo, and custom OpenAI-compatible providers",
     core_5: "Global hotkeys, tray menu, auto-start, and in-app update",
@@ -230,6 +241,9 @@ const i18nMap = {
     feature_7_title: "Image OCR",
     feature_7_desc:
       "Right-click in the pinned image window to trigger OCR, with results displayed in a standalone text window (Windows only).",
+    feature_8_title: "Screen Recording + Audio",
+    feature_8_desc:
+      "The recording capsule supports start/pause/resume/stop, system and microphone device selection, plus FPS/bitrate tuning.",
     feature_4_title: "AI Provider Config",
     feature_4_desc:
       "Built-in providers plus custom services, encrypted local API key storage, and connection testing.",
@@ -246,9 +260,9 @@ const i18nMap = {
     usage_3_title: "AI Selection Assistant",
     usage_3_desc:
       "Select text in any Windows app to auto-pop toolbar, supporting one-click translate, explain, copy and streaming results.",
-    usage_4_title: "Image OCR Extraction",
+    usage_4_title: "Recording + OCR Flow",
     usage_4_desc:
-      "Windows exclusive feature. Right-click in the pinned image window to trigger OCR and quickly extract text from images.",
+      "Enable recording in settings, then start from the recording capsule; on first use it auto-checks and downloads ffmpeg if needed, while OCR remains available from the pinned image window.",
     gallery_title: "UI Preview",
     gallery_desc: "Real screenshots of the product workflow and core windows.",
     gallery_1: "Text Clipboard Window",
@@ -261,6 +275,7 @@ const i18nMap = {
     table_feature: "Feature",
     table_clipboard: "Clipboard Manager",
     table_ocr: "Image OCR",
+    table_screen_recording: "Screen Recording",
     table_ai_selection: "AI Text Selection",
     table_tray_hotkey: "Tray & Hotkeys",
     arch_title: "Architecture",
@@ -293,9 +308,9 @@ const i18nMap = {
     gallery_alt_6: "fuyun_tools settings page",
     doc_title: "fuyun_tools - Tray Productivity Tool",
     doc_desc:
-      "fuyun_tools is a desktop productivity tool combining clipboard history management, screenshot OCR, and Windows AI text selection.",
+      "fuyun_tools is a desktop productivity tool combining clipboard history, screenshot and recording workflows, image OCR, and Windows AI text selection.",
     og_desc:
-      "Manage text and image clipboard in one place and run AI translation/explanation and image OCR on Windows.",
+      "Manage text and image clipboard in one place and run AI selection, screen recording with audio capture, and image OCR on Windows.",
   },
 };
 
