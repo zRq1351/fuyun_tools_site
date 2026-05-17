@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fuyun_tools - 系统托盘效率工具</title>
+  <title>fuyun_tools - Windows AI划词 · 截图OCR · 剪贴板管理 · 录屏 · 效率工具</title>
   <meta name="description" content="fuyun_tools 是一款集剪贴板历史管理、截图标注与录屏、图片 OCR、Windows AI 划词、应用启动器与文档管理于一体的桌面效率工具。">
   <meta name="keywords" content="fuyun_tools,剪贴板管理,AI划词,图片OCR,录屏,截图标注,应用启动器,文档管理,系统托盘工具,Tauri,桌面效率工具">
   <meta name="author" content="zRq1351">
+  <meta name="application-name" content="fuyun_tools">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -19,7 +20,7 @@
   <meta property="og:site_name" content="fuyun_tools">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:title" content="fuyun_tools - 系统托盘效率工具">
+  <meta property="og:title" content="fuyun_tools - Windows AI划词 · 截图OCR · 剪贴板管理 · 录屏 · 效率工具">
   <meta property="og:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、截图标注、录屏音频采集、应用启动器、文档管理与图片 OCR 识别。">
   <meta property="og:url" content="https://zrq1351.github.io/fuyun_tools_site/?lang=zh">
   <meta property="og:image" content="https://zrq1351.github.io/fuyun_tools_site/images/128x128.png">
@@ -28,7 +29,7 @@
   <meta property="og:image:height" content="128">
   <meta property="og:image:alt" content="fuyun_tools 品牌图标">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="fuyun_tools - 系统托盘效率工具">
+  <meta name="twitter:title" content="fuyun_tools - Windows AI划词 · 截图OCR · 剪贴板管理 · 录屏 · 效率工具">
   <meta name="twitter:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、截图标注、录屏音频采集、应用启动器、文档管理与图片 OCR 识别。">
   <meta name="twitter:image" content="https://zrq1351.github.io/fuyun_tools_site/images/128x128.png">
   <meta name="twitter:image:alt" content="fuyun_tools 品牌图标">
@@ -73,6 +74,62 @@
           "url": "https://zrq1351.github.io/fuyun_tools_site/",
           "logo": "https://zrq1351.github.io/fuyun_tools_site/images/128x128.png",
           "sameAs": ["https://github.com/zRq1351/fuyun_tools"]
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "fuyun_tools 支持哪些平台？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "fuyun_tools 目前仅支持 Windows 10/11（64 位），部分功能依赖 Windows 特有 API，不支持 macOS 和 Linux。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "fuyun_tools 是免费的吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的，fuyun_tools 完全免费开源（GPL-2.0），无任何收费功能，源代码托管在 GitHub 上可自由审计。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "fuyun_tools 的全局快捷键有哪些？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "共 6 组全局快捷键：Ctrl+Shift+Z 文本剪贴板、Ctrl+Shift+X 图片剪贴板、Ctrl+Shift+S 截图标注、Alt+R 录屏控制、Alt+Q 应用启动器、Ctrl+Shift+D 文档管理器。均可在设置中自定义。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "fuyun_tools 的数据会上传到云端吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会。所有数据存储在本地，OCR 使用本地引擎离线运行，不上传图片。AI 请求仅发往您配置的 API 服务商，API Key 通过 Windows 凭据管理器加密存储。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何配置 AI 翻译/解释功能？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "启动后进入设置 → AI 设置，选择内置提供商（DeepSeek / 通义千问 / 小米 Mimo）或自定义 OpenAI 兼容 API，填入 API Key 点击连接测试。划词选中文本即自动弹出翻译/解释/自定义提示词工具栏。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "录屏功能需要额外安装什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "录屏依赖 ffmpeg，首次使用时会在设置中自动检查并提示下载（无需手动安装），完成后即可录制。支持系统音频与麦克风同时采集，支持按键说话。"
+          }
         }
       ]
     }

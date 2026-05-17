@@ -213,7 +213,7 @@ const i18nMap = {
     gallery_alt_8: "fuyun_tools 启动器分类管理",
     gallery_alt_9: "fuyun_tools 文档管理器",
     gallery_alt_10: "fuyun_tools 文档导入管理",
-    doc_title: "fuyun_tools - 系统托盘效率工具",
+    doc_title: "fuyun_tools - Windows AI划词 · 截图OCR · 剪贴板管理 · 录屏 · 效率工具",
     doc_desc:
       "fuyun_tools 是一款集剪贴板历史管理、截图标注与录屏、图片 OCR、Windows AI 划词、应用启动器与文档管理于一体的桌面效率工具。",
     og_desc:
@@ -357,7 +357,7 @@ const i18nMap = {
     gallery_alt_8: "fuyun_tools launcher category management",
     gallery_alt_9: "fuyun_tools document manager",
     gallery_alt_10: "fuyun_tools document import management",
-    doc_title: "fuyun_tools - Tray Productivity Tool",
+    doc_title: "fuyun_tools - Windows AI Selection · Screenshot OCR · Clipboard Manager · Recorder",
     doc_desc:
       "fuyun_tools is a desktop productivity tool combining clipboard history, screenshot annotation, screen recording, image OCR, AI text selection, app launcher, and document management.",
     og_desc:
