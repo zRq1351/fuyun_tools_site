@@ -94,10 +94,10 @@ const i18nMap = {
     nav_gallery: "界面",
     nav_architecture: "架构",
     github_repo_label: "GitHub 仓库",
-    hero_badge: "Windows AI 划词 + 截图录屏 OCR + 剪贴板管理",
-    hero_title: "把剪贴板、截图录屏 OCR 和 AI 划词，做成一条真正可用的效率链路",
+    hero_badge: "Windows AI 划词 + 截图标注录屏 OCR + 剪贴板管理 + 应用启动器 + 文档管理",
+    hero_title: "把剪贴板、截图标注、录屏音频、AI 划词、应用启动与文档管理，整合为一个高效的桌面工具箱",
     hero_desc:
-      "fuyun_tools 常驻系统托盘，通过统一快捷键管理文字与图片历史；在 Windows 上进一步打通选词翻译、快捷截图录屏与图片 OCR 识别的完整路径。",
+      "fuyun_tools 常驻系统托盘，通过统一快捷键管理文字/图片剪贴板历史、截图标注与 OCR、屏幕录制与音频采集、AI 划词翻译/解释、应用快速启动与文档管理，是 Windows 上一站式效率工具箱。",
     view_source: "查看源码",
     meta_stack: "技术栈：Vue 3 + Element Plus + Tauri 2 + Rust",
     meta_ai_sdk: "AI SDK：async-openai（OpenAI 兼容）",
@@ -106,46 +106,69 @@ const i18nMap = {
     logo_showcase_desc: "统一用于网站 Logo、分享卡片与应用识别",
     logo_alt: "fuyun_tools 品牌图标",
     core_title: "核心能力",
-    core_1: "文本剪贴板自动记录、搜索、分类、回填",
-    core_2: "图片剪贴板缩略图管理、双击回填、全屏预览",
-    core_3: "Windows 划词工具栏支持翻译 / 解释 / 复制",
-    core_6: "Windows 固定图片窗口支持右键触发 OCR 识别",
+    core_1: "文本剪贴板自动记录、去重、搜索、分类、回填",
+    core_2: "图片剪贴板缩略图管理、双击回填、全屏预览、磁盘限额",
+    core_3: "Windows 划词工具栏支持翻译 / 解释 / 复制 / 自定义提示词 / 网页搜索",
+    core_screenshot: "Windows 截图标注工具：框选/圆形/箭头/文字/画笔/马赛克/取色器，支持长截图与固定到屏幕",
     core_7:
-      "Windows 录屏胶囊支持一键开始 / 暂停 / 恢复 / 停止，并支持系统音频与麦克风采集",
-    core_4: "支持 DeepSeek、通义千问、小米 Mimo 与自定义 OpenAI 兼容服务",
-    core_5: "全局热键、托盘菜单、开机自启、应用更新",
+      "Windows 录屏胶囊支持开始/暂停/恢复/停止，系统音频+麦克风采集，按键说话",
+    core_6: "Windows 固定图片窗口右键 OCR 识别，双引擎（Windows 原生 + PaddleOCR）离线运行",
+    core_launcher: "Windows 应用启动器（Alt+Q）：扫描开始菜单，模糊搜索快速启动",
+    core_docs: "Windows 文档管理器（Ctrl+Shift+D）：索引与仓库双模式，FTS5 全文搜索",
+    core_4: "支持 DeepSeek、通义千问、小米 Mimo 与自定义 OpenAI 兼容服务，API Key 本地加密",
+    core_backup: "数据备份与恢复：设置/历史/图片一键导出，支持自动备份与回滚",
+    core_5: "全局热键、托盘菜单、开机自启、应用更新、系统诊断",
     features_title: "功能模块",
     feature_1_title: "剪贴板管理",
     feature_1_desc:
-      "支持历史上限策略、分类管理、键盘与鼠标双路径交互，适合高频复制粘贴场景。",
+      "自动去重记录文本历史，支持分类、固定、容量保护，键盘方向键与鼠标双路径交互回填。",
     feature_2_title: "图片剪贴板",
     feature_2_desc:
-      "自动识别并持久化图片历史，支持搜索、分类、双击回填与大图预览。",
+      "自动捕获图片历史，异步缩略图加载，磁盘配额管理，支持分类、标记与全屏预览。",
     feature_3_title: "AI 划词助手",
     feature_3_desc:
-      "Windows 下监听文本选择与鼠标事件，自动弹出工具栏并流式输出翻译或解释结果。",
+      "Windows 下监听文本选择与鼠标事件，自动弹出工具栏，支持翻译/解释/复制/自定义提示词与网页搜索，流式输出。",
+    feature_screenshot_title: "截图标注",
+    feature_screenshot_desc:
+      "区域截图与自动窗口检测，提供框选/圆形/箭头/文字/画笔/马赛克/取色器等标注工具，支持撤销重做、长截图与固定到屏幕。",
     feature_7_title: "图片 OCR",
     feature_7_desc:
-      "固定图片窗口支持右键触发 OCR 识别，并在独立文本窗口展示结果，目前仅在 Windows 可用。",
+      "固定图片窗口右键触发 OCR 识别，双引擎（Windows 原生 + PaddleOCR）离线运行，结果在独立文本窗口展示。",
     feature_8_title: "录屏与音频采集",
     feature_8_desc:
-      "录屏胶囊支持开始/暂停/恢复/停止，支持系统音频与麦克风设备选择，并可配置帧率与码率参数。",
+      "录屏胶囊支持开始/暂停/恢复/停止，支持系统音频与麦克风设备选择，按键说话，可配置帧率与码率参数，ffmpeg 按需下载。",
+    feature_launcher_title: "应用启动器",
+    feature_launcher_desc:
+      "扫描开始菜单快捷方式，支持模糊搜索、分类管理、自定义命令，键盘导航快速启动应用（Alt+Q）。",
+    feature_docs_title: "文档管理器",
+    feature_docs_desc:
+      "索引与仓库双模式，支持 PDF/Word 内容提取与 FTS5 全文搜索，分类管理、拖拽导入与导入撤销（Ctrl+Shift+D）。",
     feature_4_title: "AI 服务配置",
     feature_4_desc:
-      "内置多提供商并支持自定义服务，API Key 本地加密保存，提供连接测试能力。",
+      "内置 DeepSeek、通义千问、小米 Mimo 提供商，支持自定义 OpenAI 兼容服务，API Key 本地加密保存，提供连接测试。",
+    feature_backup_title: "备份与诊断",
+    feature_backup_desc:
+      "设置/历史/图片一键导出与恢复，支持自动备份与回滚保护；内置系统诊断面板监控存储、依赖与性能状态。",
     feature_5_title: "系统集成",
     feature_5_desc:
-      "应用常驻托盘，支持热键唤起文本/图片窗口，具备自动更新与开机自启。",
+      "应用常驻托盘，支持 6 组全局热键，具备开机自启、自动更新、主题切换（暗色/亮色/护眼），零数据上传，OCR 完全离线。",
     usage_title: "软件使用流程",
     usage_1_title: "基础配置与启动",
-    usage_1_desc: "启动后常驻托盘，建议首先进入设置配置 AI 服务与模型，同时可按需调整历史上限和分类策略。",
+    usage_1_desc: "启动后常驻托盘，建议首先进入设置配置 AI 服务与 API Key、调整各类历史上限与快捷键设置。",
     usage_2_title: "文本与图片剪贴板",
-    usage_2_desc: "使用 Ctrl+Shift+Z/X 快速唤出文字/图片窗口，通过方向键、回车或双击快速回填到当前焦点应用。",
+    usage_2_desc: "使用 Ctrl+Shift+Z / Ctrl+Shift+X 快速唤出文字/图片窗口，通过方向键、回车或双击回填到当前焦点应用。",
     usage_3_title: "AI 划词助手",
-    usage_3_desc: "Windows 任意应用中选中文本自动弹出工具栏，支持一键翻译、解释、复制及流式结果展示。",
-    usage_4_title: "录屏与 OCR 链路",
-    usage_4_desc:
-      "进入设置启用录屏后可通过录屏胶囊开始录制；首次会自动检查并按需下载 ffmpeg，同时仍可通过固定图片窗口右键完成 OCR 识别。",
+    usage_3_desc: "Windows 任意应用中选中文本自动弹出工具栏，支持一键翻译、解释、复制及自定义提示词流式结果展示。",
+    usage_4_title: "截图标注与 OCR",
+    usage_4_desc: "使用 Ctrl+Shift+S 区域截图，通过标注工具编辑后复制/保存/固定到屏幕，在固定窗口右键触发 OCR 文字识别。",
+    usage_5_title: "录屏与音频采集",
+    usage_5_desc: "进入设置启用录屏后通过录屏胶囊开始录制（Alt+R）；首次自动检查并按需下载 ffmpeg，支持按键说话控制麦克风。",
+    usage_launcher_title: "应用启动器",
+    usage_launcher_desc: "使用 Alt+Q 唤出启动器，输入关键词模糊匹配应用名称，回车快速启动；支持分类管理与自定义命令。",
+    usage_docs_title: "文档管理器",
+    usage_docs_desc: "使用 Ctrl+Shift+D 打开文档管理器，拖拽导入文件，按分类整理，FTS5 全文搜索快速定位，支持导入撤销。",
+    usage_backup_title: "数据备份与恢复",
+    usage_backup_desc: "在设置中手动导出备份包，或开启自动备份按日/周/月定期执行；支持合并/覆写两种恢复策略与回滚保护。",
     gallery_title: "界面预览",
     gallery_desc: "以下为软件真实界面截图，展示核心工作流与窗口体验。",
     gallery_1: "文本剪贴板窗口",
@@ -154,22 +177,26 @@ const i18nMap = {
     gallery_4: "划词工具栏",
     gallery_5: "AI 结果窗口",
     gallery_6: "设置页（AI 配置）",
+    gallery_7: "应用启动器",
+    gallery_8: "启动器分类管理",
+    gallery_9: "文档管理器",
+    gallery_10: "文档导入管理",
     arch_title: "实现架构",
     arch_1_title: "前端层",
     arch_1_desc:
-      "多页面 Vue 结构分别承载剪贴板、图片管理、设置、划词工具栏与结果窗口。",
+      "多页面 Vue 结构分别承载剪贴板、图片管理、截图编辑、录屏胶囊、启动器、文档管理、设置、划词工具栏与结果窗口。",
     arch_2_title: "Tauri 运行层",
     arch_2_desc:
       "Rust 侧统一管理全局快捷键、托盘菜单、窗口行为、插件能力与状态同步。",
     arch_3_title: "业务服务层",
     arch_3_desc:
-      "拆分为 clipboard/image_clipboard/ai 服务，包含历史监听、流式 AI 调用与错误处理。",
+      "拆分为 clipboard / image_clipboard / ai / screenshot / recording / launcher / document / backup / diagnostic 服务，涵盖历史监听、流式 AI、截图标注、录屏采集与数据备份。",
     arch_4_title: "Windows 扩展特性",
     arch_4_desc:
-      "通过鼠标监听与文本选择模块，驱动划词链路及工具栏的即时显示与交互。",
+      "通过全局鼠标/键盘 Hook 与文本选择引擎，驱动划词工具栏与截图取色器等交互，结合 WASAPI/WGC 实现系统级音频与录屏采集。",
     cta_title: "开始使用 fuyun_tools",
     cta_desc:
-      "下载发布包，首次运行后自动生成配置。在设置中配置模型与 API Key 即可开始 AI 划词。",
+      "下载发布包，首次运行后自动生成配置。在设置中配置 AI 模型与 API Key 即可开始 AI 划词，同时启用截图、录屏、启动器与文档管理等模块。",
     view_guide: "查看使用说明",
     github_repo: "GitHub 仓库",
     back_to_top_label: "回到顶部",
@@ -182,11 +209,15 @@ const i18nMap = {
     gallery_alt_4: "fuyun_tools 划词工具栏",
     gallery_alt_5: "fuyun_tools AI 结果窗口",
     gallery_alt_6: "fuyun_tools 设置页面",
+    gallery_alt_7: "fuyun_tools 应用启动器",
+    gallery_alt_8: "fuyun_tools 启动器分类管理",
+    gallery_alt_9: "fuyun_tools 文档管理器",
+    gallery_alt_10: "fuyun_tools 文档导入管理",
     doc_title: "fuyun_tools - 系统托盘效率工具",
     doc_desc:
-      "fuyun_tools 是一款集剪贴板历史管理、快捷截图与录屏、图片 OCR、Windows AI 划词能力于一体的桌面效率工具。",
+      "fuyun_tools 是一款集剪贴板历史管理、截图标注与录屏、图片 OCR、Windows AI 划词、应用启动器与文档管理于一体的桌面效率工具。",
     og_desc:
-      "统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、录屏音频采集与图片 OCR 识别。",
+      "统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、截图标注、录屏音频采集、应用启动器、文档管理与图片 OCR 识别。",
   },
   en: {
     nav_features: "Features",
@@ -195,11 +226,11 @@ const i18nMap = {
     nav_architecture: "Architecture",
     github_repo_label: "GitHub Repository",
     hero_badge:
-      "Windows AI Text Selection + Screenshot/Screen Recording OCR + Clipboard Management",
+      "Windows AI Text Selection + Screenshot Annotate Record OCR + Clipboard + App Launcher + Doc Manager",
     hero_title:
-      "Turn Clipboard, Screenshot/Screen Recording OCR and AI Selection into One Efficient Workflow",
+      "Clipboard, Screenshot Annotation, Screen Recording, AI Selection, App Launcher & Doc Manager — All in One Desktop Toolkit",
     hero_desc:
-      "fuyun_tools runs in the system tray, unifies text and image clipboard history with hotkeys, and completes selection → translate/explain and screenshot/screen recording → OCR on Windows.",
+      "fuyun_tools runs in the system tray, unifying text/image clipboard history, screenshot annotation & OCR, screen recording with audio, AI-powered selection translate/explain, app launcher, and document management — a complete Windows productivity toolbox.",
     view_source: "View Source",
     meta_stack: "Stack: Vue 3 + Element Plus + Tauri 2 + Rust",
     meta_ai_sdk: "AI SDK: async-openai (OpenAI compatible)",
@@ -209,51 +240,79 @@ const i18nMap = {
       "Used consistently in site logo, share cards, and product identity",
     logo_alt: "fuyun_tools brand icon",
     core_title: "Core Capabilities",
-    core_1: "Auto capture, search, categorize, and refill text clipboard items",
+    core_1: "Auto capture, dedup, search, categorize, and refill text clipboard items",
     core_2:
-      "Image clipboard thumbnails, double-click refill, and fullscreen preview",
-    core_3: "Windows selection toolbar for translate / explain / copy",
-    core_6: "Windows image window supports right-click OCR text extraction",
+      "Image clipboard thumbnails, double-click refill, fullscreen preview, disk quota",
+    core_3: "Windows selection toolbar for translate / explain / copy / custom prompts / web search",
+    core_screenshot: "Windows screenshot annotation: rectangle/circle/arrow/text/brush/mosaic/color picker, long screenshot & pin to screen",
     core_7:
-      "Windows recording capsule supports start/pause/resume/stop with system and microphone audio capture",
+      "Windows recording capsule: start/pause/resume/stop, system audio + microphone capture, push-to-talk",
+    core_6: "Windows image window right-click OCR, dual-engine (Windows Native + PaddleOCR) fully offline",
+    core_launcher: "Windows app launcher (Alt+Q): scan Start Menu, fuzzy search, quick launch",
+    core_docs: "Windows document manager (Ctrl+Shift+D): index & repository dual mode, FTS5 full-text search",
     core_4:
-      "DeepSeek, Qwen, Xiaomi Mimo, and custom OpenAI-compatible providers",
-    core_5: "Global hotkeys, tray menu, auto-start, and in-app update",
+      "DeepSeek, Qwen, Xiaomi Mimo, and custom OpenAI-compatible providers, API Key encrypted locally",
+    core_backup: "Data backup & restore: one-click export settings/history/images, auto-backup with rollback",
+    core_5: "Global hotkeys, tray menu, auto-start, in-app update, system diagnostics",
     features_title: "Feature Modules",
     feature_1_title: "Clipboard Manager",
     feature_1_desc:
-      "Supports retention policy, categories, keyboard and mouse interaction for high-frequency copy/paste.",
+      "Auto dedup text history with categories, pinning, capacity protection, and keyboard/mouse refill to focused apps.",
     feature_2_title: "Image Clipboard",
     feature_2_desc:
-      "Automatically records image history with search, categories, double-click refill, and large preview.",
+      "Auto capture image history with async thumbnails, disk quota, categories, tags, and fullscreen preview.",
     feature_3_title: "AI Selection Assistant",
     feature_3_desc:
-      "On Windows, listens to text selection and mouse events, then streams translation/explanation results.",
+      "On Windows, listens to text selection and mouse events, then pops a toolbar offering translate/explain/copy/custom prompts and web search with streaming output.",
+    feature_screenshot_title: "Screenshot Annotation",
+    feature_screenshot_desc:
+      "Region capture with smart window detection. Annotate with rectangle/circle/arrow/text/brush/mosaic/color picker. Undo/redo, long screenshot, and pin to screen.",
     feature_7_title: "Image OCR",
     feature_7_desc:
-      "Right-click in the pinned image window to trigger OCR, with results displayed in a standalone text window (Windows only).",
+      "Right-click on pinned image to trigger OCR with dual engines (Windows Native + PaddleOCR), running fully offline. Results shown in a standalone window.",
     feature_8_title: "Screen Recording + Audio",
     feature_8_desc:
-      "The recording capsule supports start/pause/resume/stop, system and microphone device selection, plus FPS/bitrate tuning.",
+      "Recording capsule with start/pause/resume/stop, system + microphone audio, push-to-talk, configurable FPS/bitrate. ffmpeg downloaded on demand.",
+    feature_launcher_title: "App Launcher",
+    feature_launcher_desc:
+      "Scans Start Menu shortcuts, fuzzy search, category management, custom commands. Keyboard navigation for quick app launch (Alt+Q).",
+    feature_docs_title: "Document Manager",
+    feature_docs_desc:
+      "Index & repository dual mode, PDF/Word content extraction, FTS5 full-text search, category management, drag-drop import with undo (Ctrl+Shift+D).",
     feature_4_title: "AI Provider Config",
     feature_4_desc:
-      "Built-in providers plus custom services, encrypted local API key storage, and connection testing.",
+      "Built-in DeepSeek, Qwen, Xiaomi Mimo providers plus custom OpenAI-compatible services. API keys encrypted locally with connection testing.",
+    feature_backup_title: "Backup & Diagnostics",
+    feature_backup_desc:
+      "One-click export/restore of settings, history & images with auto-backup and rollback protection. Built-in diagnostics panel for storage, dependencies & performance.",
     feature_5_title: "System Integration",
     feature_5_desc:
-      "Tray-resident app with global hotkeys for text/image windows, auto-update, and auto-start.",
+      "Tray-resident with 6 global hotkeys, auto-start, auto-update, theme switching (dark/light/eye-care), zero data collection, fully offline OCR.",
     usage_title: "Usage Flow",
     usage_1_title: "Basic Config & Launch",
     usage_1_desc:
-      "Runs in tray after launch. It's recommended to configure AI provider and model in settings first, and adjust history limits and strategies as needed.",
+      "Runs in tray after launch. Configure AI provider and API key in settings first, then adjust history limits and shortcuts as needed.",
     usage_2_title: "Text & Image Clipboard",
     usage_2_desc:
-      "Use Ctrl+Shift+Z/X to quick open text/image windows. Refill to focused app via arrow keys, Enter or double-click.",
+      "Use Ctrl+Shift+Z / Ctrl+Shift+X to quick open text/image windows. Refill to focused app via arrow keys, Enter or double-click.",
     usage_3_title: "AI Selection Assistant",
     usage_3_desc:
-      "Select text in any Windows app to auto-pop toolbar, supporting one-click translate, explain, copy and streaming results.",
-    usage_4_title: "Recording + OCR Flow",
+      "Select text in any Windows app to auto-pop toolbar, supporting one-click translate, explain, copy and custom prompt streaming results.",
+    usage_4_title: "Screenshot Annotation & OCR",
     usage_4_desc:
-      "Enable recording in settings, then start from the recording capsule; on first use it auto-checks and downloads ffmpeg if needed, while OCR remains available from the pinned image window.",
+      "Use Ctrl+Shift+S for region screenshot, edit with annotation tools, then copy/save/pin to screen. Right-click on pinned window for OCR text extraction.",
+    usage_5_title: "Screen Recording + Audio",
+    usage_5_desc:
+      "Enable recording in settings, then start from the recording capsule (Alt+R); auto-checks and downloads ffmpeg on first use. Push-to-talk for microphone control.",
+    usage_launcher_title: "App Launcher",
+    usage_launcher_desc:
+      "Press Alt+Q to open launcher, type to fuzzy-search apps by name, Enter to launch. Supports category management and custom commands.",
+    usage_docs_title: "Document Manager",
+    usage_docs_desc:
+      "Press Ctrl+Shift+D to open document manager, drag-drop files to import, organize by category, use FTS5 full-text search to find files. Import undo supported.",
+    usage_backup_title: "Backup & Restore",
+    usage_backup_desc:
+      "Manually export a backup package from settings, or enable scheduled auto-backup (daily/weekly/monthly). Supports merge/overwrite strategies with rollback protection.",
     gallery_title: "UI Preview",
     gallery_desc: "Real screenshots of the product workflow and core windows.",
     gallery_1: "Text Clipboard Window",
@@ -262,22 +321,26 @@ const i18nMap = {
     gallery_4: "Selection Toolbar",
     gallery_5: "AI Result Window",
     gallery_6: "Settings (AI Config)",
+    gallery_7: "App Launcher",
+    gallery_8: "Launcher Category Management",
+    gallery_9: "Document Manager",
+    gallery_10: "Document Import Management",
     arch_title: "Architecture",
     arch_1_title: "Frontend Layer",
     arch_1_desc:
-      "Multi-page Vue windows for clipboard, image manager, settings, toolbar, and result display.",
+      "Multi-page Vue windows for clipboard, image manager, screenshot editor, recording capsule, launcher, document manager, settings, toolbar, and result display.",
     arch_2_title: "Tauri Runtime",
     arch_2_desc:
       "Rust layer handles global shortcuts, tray menu, window behavior, plugins, and state sync.",
     arch_3_title: "Service Layer",
     arch_3_desc:
-      "Split clipboard/image/ai services for history listeners, streaming AI calls, and error handling.",
+      "Split into clipboard / image_clipboard / ai / screenshot / recording / launcher / document / backup / diagnostic services for history listeners, streaming AI, annotation, capture, and data backup.",
     arch_4_title: "Windows Extensions",
     arch_4_desc:
-      "Mouse listener and text selection modules drive toolbar visibility and selection workflow.",
+      "Global mouse/keyboard hooks and text selection engine drive the toolbar and screenshot workflows, leveraging WASAPI/WGC for system-level audio and screen capture.",
     cta_title: "Get Started with fuyun_tools",
     cta_desc:
-      "Download the release package. Settings are generated on first run. Configure model and API key to start AI selection.",
+      "Download the release package. Settings are generated on first run. Configure AI model and API key to start AI selection, and enable screenshot, recording, launcher, and document manager modules.",
     view_guide: "View Guide",
     github_repo: "GitHub Repository",
     back_to_top_label: "Back to top",
@@ -290,11 +353,15 @@ const i18nMap = {
     gallery_alt_4: "fuyun_tools selection toolbar",
     gallery_alt_5: "fuyun_tools AI result window",
     gallery_alt_6: "fuyun_tools settings page",
+    gallery_alt_7: "fuyun_tools app launcher",
+    gallery_alt_8: "fuyun_tools launcher category management",
+    gallery_alt_9: "fuyun_tools document manager",
+    gallery_alt_10: "fuyun_tools document import management",
     doc_title: "fuyun_tools - Tray Productivity Tool",
     doc_desc:
-      "fuyun_tools is a desktop productivity tool combining clipboard history, screenshot and recording workflows, image OCR, and Windows AI text selection.",
+      "fuyun_tools is a desktop productivity tool combining clipboard history, screenshot annotation, screen recording, image OCR, AI text selection, app launcher, and document management.",
     og_desc:
-      "Manage text and image clipboard in one place and run AI selection, screen recording with audio capture, and image OCR on Windows.",
+      "Manage text and image clipboard, run AI selection, screenshot annotation with OCR, screen recording with audio, app launcher, and document management on Windows.",
   },
 };
 
@@ -355,6 +422,10 @@ const applyLanguage = () => {
     "gallery_alt_4",
     "gallery_alt_5",
     "gallery_alt_6",
+    "gallery_alt_7",
+    "gallery_alt_8",
+    "gallery_alt_9",
+    "gallery_alt_10",
   ];
   lightboxAltTriggers.forEach((trigger, index) => {
     const key = galleryAltKeys[index];

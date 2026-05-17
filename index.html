@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fuyun_tools - 系统托盘效率工具</title>
-  <meta name="description" content="fuyun_tools 是一款集剪贴板历史管理、快捷截图与录屏、图片 OCR、Windows AI 划词能力于一体的桌面效率工具。">
-  <meta name="keywords" content="fuyun_tools,剪贴板管理,AI划词,图片OCR,录屏,系统托盘工具,Tauri,桌面效率工具">
+  <meta name="description" content="fuyun_tools 是一款集剪贴板历史管理、截图标注与录屏、图片 OCR、Windows AI 划词、应用启动器与文档管理于一体的桌面效率工具。">
+  <meta name="keywords" content="fuyun_tools,剪贴板管理,AI划词,图片OCR,录屏,截图标注,应用启动器,文档管理,系统托盘工具,Tauri,桌面效率工具">
   <meta name="author" content="zRq1351">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -20,7 +20,7 @@
   <meta property="og:locale" content="zh_CN">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="fuyun_tools - 系统托盘效率工具">
-  <meta property="og:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、录屏音频采集与图片 OCR 识别。">
+  <meta property="og:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、截图标注、录屏音频采集、应用启动器、文档管理与图片 OCR 识别。">
   <meta property="og:url" content="https://zrq1351.github.io/fuyun_tools_site/?lang=zh">
   <meta property="og:image" content="https://zrq1351.github.io/fuyun_tools_site/images/128x128.png">
   <meta property="og:image:type" content="image/png">
@@ -29,7 +29,7 @@
   <meta property="og:image:alt" content="fuyun_tools 品牌图标">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="fuyun_tools - 系统托盘效率工具">
-  <meta name="twitter:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、录屏音频采集与图片 OCR 识别。">
+  <meta name="twitter:description" content="统一管理文字与图片剪贴板，在 Windows 上实现 AI 划词翻译、截图标注、录屏音频采集、应用启动器、文档管理与图片 OCR 识别。">
   <meta name="twitter:image" content="https://zrq1351.github.io/fuyun_tools_site/images/128x128.png">
   <meta name="twitter:image:alt" content="fuyun_tools 品牌图标">
   <link rel="icon" type="image/png" href="./images/128x128.png">
@@ -42,7 +42,7 @@
       "name": "fuyun_tools",
       "applicationCategory": "ProductivityApplication",
       "operatingSystem": "Windows",
-      "description": "fuyun_tools 是一款集剪贴板历史管理、快捷截图与录屏、图片 OCR、Windows AI 划词功能于一体的桌面效率工具。",
+      "description": "fuyun_tools 是一款集剪贴板历史管理、截图标注与录屏、图片 OCR、Windows AI 划词、应用启动器与文档管理于一体的桌面效率工具。",
       "url": "https://zrq1351.github.io/fuyun_tools_site/",
       "downloadUrl": "https://github.com/zRq1351/fuyun_tools/releases/latest",
       "image": "https://zrq1351.github.io/fuyun_tools_site/images/128x128.png",
@@ -137,13 +137,17 @@
           <img class="hero-brand-mark" src="./images/128x128.png" alt="fuyun_tools 品牌标识">
           <h3 data-i18n="core_title">核心能力</h3>
           <ul>
-            <li data-i18n="core_1">文本剪贴板自动记录、搜索、分类、回填</li>
-            <li data-i18n="core_2">图片剪贴板缩略图管理、双击回填、全屏预览</li>
-            <li data-i18n="core_3">Windows 划词工具栏支持翻译 / 解释 / 复制</li>
-            <li data-i18n="core_6">Windows 固定图片窗口支持右键触发 OCR 识别</li>
-            <li data-i18n="core_7">Windows 录屏胶囊支持一键开始 / 暂停 / 恢复 / 停止，并支持系统音频与麦克风采集</li>
+            <li data-i18n="core_1">文本剪贴板自动记录、去重、搜索、分类、回填</li>
+            <li data-i18n="core_2">图片剪贴板缩略图管理、双击回填、全屏预览、磁盘限额</li>
+            <li data-i18n="core_3">Windows 划词工具栏支持翻译 / 解释 / 复制 / 自定义提示词 / 网页搜索</li>
+            <li data-i18n="core_screenshot">Windows 截图标注工具：框选/圆形/箭头/文字/画笔/马赛克/取色器，支持长截图与固定到屏幕</li>
+            <li data-i18n="core_7">Windows 录屏胶囊支持开始/暂停/恢复/停止，系统音频+麦克风采集，按键说话</li>
+            <li data-i18n="core_6">Windows 固定图片窗口右键 OCR 识别，双引擎离线运行</li>
+            <li data-i18n="core_launcher">Windows 应用启动器（Alt+Q）：扫描开始菜单，模糊搜索快速启动</li>
+            <li data-i18n="core_docs">Windows 文档管理器（Ctrl+Shift+D）：索引与仓库双模式，FTS5 全文搜索</li>
             <li data-i18n="core_4">支持 DeepSeek、通义千问、小米 Mimo 与自定义 OpenAI 兼容服务</li>
-            <li data-i18n="core_5">全局热键、托盘菜单、开机自启、应用更新</li>
+            <li data-i18n="core_backup">数据备份与恢复：设置/历史/图片一键导出，自动备份与回滚</li>
+            <li data-i18n="core_5">全局热键、托盘菜单、开机自启、应用更新、系统诊断</li>
           </ul>
         </div>
       </div>
@@ -155,31 +159,47 @@
         <div class="cards">
           <article class="card">
             <h3 data-i18n="feature_1_title">剪贴板管理</h3>
-            <p data-i18n="feature_1_desc">支持历史上限策略、分类管理、键盘与鼠标双路径交互，适合高频复制粘贴场景。</p>
+            <p data-i18n="feature_1_desc">自动去重记录文本历史，支持分类、固定、容量保护，键盘方向键与鼠标双路径交互回填。</p>
           </article>
           <article class="card">
             <h3 data-i18n="feature_2_title">图片剪贴板</h3>
-            <p data-i18n="feature_2_desc">自动识别并持久化图片历史，支持搜索、分类、双击回填与大图预览。</p>
+            <p data-i18n="feature_2_desc">自动捕获图片历史，异步缩略图加载，磁盘配额管理，支持分类、标记与全屏预览。</p>
           </article>
           <article class="card">
             <h3 data-i18n="feature_3_title">AI 划词助手</h3>
-            <p data-i18n="feature_3_desc">Windows 下监听文本选择与鼠标事件，自动弹出工具栏并流式输出翻译或解释结果。</p>
+            <p data-i18n="feature_3_desc">Windows 下监听文本选择与鼠标事件，自动弹出工具栏，支持翻译/解释/复制/自定义提示词与网页搜索，流式输出。</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="feature_screenshot_title">截图标注</h3>
+            <p data-i18n="feature_screenshot_desc">区域截图与自动窗口检测，提供框选/圆形/箭头/文字/画笔/马赛克/取色器等标注工具，支持撤销重做、长截图与固定到屏幕。</p>
           </article>
           <article class="card">
             <h3 data-i18n="feature_7_title">图片 OCR</h3>
-            <p data-i18n="feature_7_desc">固定图片窗口支持右键触发 OCR 识别，并在独立文本窗口展示结果，目前仅在 Windows 可用。</p>
+            <p data-i18n="feature_7_desc">固定图片窗口右键触发 OCR 识别，双引擎（Windows 原生 + PaddleOCR）离线运行，结果在独立文本窗口展示。</p>
           </article>
           <article class="card">
             <h3 data-i18n="feature_8_title">录屏与音频采集</h3>
-            <p data-i18n="feature_8_desc">录屏胶囊支持开始/暂停/恢复/停止，支持系统音频与麦克风设备选择，并可配置帧率与码率参数。</p>
+            <p data-i18n="feature_8_desc">录屏胶囊支持开始/暂停/恢复/停止，支持系统音频与麦克风设备选择，按键说话，可配置帧率与码率参数，ffmpeg 按需下载。</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="feature_launcher_title">应用启动器</h3>
+            <p data-i18n="feature_launcher_desc">扫描开始菜单快捷方式，支持模糊搜索、分类管理、自定义命令，键盘导航快速启动应用（Alt+Q）。</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="feature_docs_title">文档管理器</h3>
+            <p data-i18n="feature_docs_desc">索引与仓库双模式，支持 PDF/Word 内容提取与 FTS5 全文搜索，分类管理、拖拽导入与导入撤销（Ctrl+Shift+D）。</p>
           </article>
           <article class="card">
             <h3 data-i18n="feature_4_title">AI 服务配置</h3>
-            <p data-i18n="feature_4_desc">内置多提供商并支持自定义服务，API Key 本地加密保存，提供连接测试能力。</p>
+            <p data-i18n="feature_4_desc">内置 DeepSeek、通义千问、小米 Mimo 提供商，支持自定义 OpenAI 兼容服务，API Key 本地加密保存，提供连接测试。</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="feature_backup_title">备份与诊断</h3>
+            <p data-i18n="feature_backup_desc">设置/历史/图片一键导出与恢复，支持自动备份与回滚保护；内置系统诊断面板监控存储、依赖与性能状态。</p>
           </article>
           <article class="card">
             <h3 data-i18n="feature_5_title">系统集成</h3>
-            <p data-i18n="feature_5_desc">应用常驻托盘，支持热键唤起文本/图片窗口，具备自动更新与开机自启。</p>
+            <p data-i18n="feature_5_desc">应用常驻托盘，支持 6 组全局热键，具备开机自启、自动更新、主题切换（暗色/亮色/护眼），零数据上传，OCR 完全离线。</p>
           </article>
         </div>
       </div>
@@ -192,22 +212,42 @@
           <article class="usage-step">
             <span class="step-index">01</span>
             <h3 data-i18n="usage_1_title">基础配置与启动</h3>
-            <p data-i18n="usage_1_desc">启动后常驻托盘，建议首先进入设置配置 AI 服务与模型，同时可按需调整历史上限和分类策略。</p>
+            <p data-i18n="usage_1_desc">启动后常驻托盘，建议首先进入设置配置 AI 服务与 API Key、调整各类历史上限与快捷键设置。</p>
           </article>
           <article class="usage-step">
             <span class="step-index">02</span>
             <h3 data-i18n="usage_2_title">文本与图片剪贴板</h3>
-            <p data-i18n="usage_2_desc">使用 Ctrl+Shift+Z/X 快速唤出文字/图片窗口，通过方向键、回车或双击快速回填到当前焦点应用。</p>
+            <p data-i18n="usage_2_desc">使用 Ctrl+Shift+Z / Ctrl+Shift+X 快速唤出文字/图片窗口，通过方向键、回车或双击回填到当前焦点应用。</p>
           </article>
           <article class="usage-step">
             <span class="step-index">03</span>
             <h3 data-i18n="usage_3_title">AI 划词助手</h3>
-            <p data-i18n="usage_3_desc">Windows 任意应用中选中文本自动弹出工具栏，支持一键翻译、解释、复制及流式结果展示。</p>
+            <p data-i18n="usage_3_desc">Windows 任意应用中选中文本自动弹出工具栏，支持一键翻译、解释、复制及自定义提示词流式结果展示。</p>
           </article>
           <article class="usage-step">
             <span class="step-index">04</span>
-            <h3 data-i18n="usage_4_title">录屏与 OCR 链路</h3>
-            <p data-i18n="usage_4_desc">进入设置启用录屏后可通过录屏胶囊开始录制；首次会自动检查并按需下载 ffmpeg，同时仍可通过固定图片窗口右键完成 OCR 识别。</p>
+            <h3 data-i18n="usage_4_title">截图标注与 OCR</h3>
+            <p data-i18n="usage_4_desc">使用 Ctrl+Shift+S 区域截图，通过标注工具编辑后复制/保存/固定到屏幕，在固定窗口右键触发 OCR 文字识别。</p>
+          </article>
+          <article class="usage-step">
+            <span class="step-index">05</span>
+            <h3 data-i18n="usage_5_title">录屏与音频采集</h3>
+            <p data-i18n="usage_5_desc">进入设置启用录屏后通过录屏胶囊开始录制（Alt+R）；首次自动检查并按需下载 ffmpeg，支持按键说话控制麦克风。</p>
+          </article>
+          <article class="usage-step">
+            <span class="step-index">06</span>
+            <h3 data-i18n="usage_launcher_title">应用启动器</h3>
+            <p data-i18n="usage_launcher_desc">使用 Alt+Q 唤出启动器，输入关键词模糊匹配应用名称，回车快速启动；支持分类管理与自定义命令。</p>
+          </article>
+          <article class="usage-step">
+            <span class="step-index">07</span>
+            <h3 data-i18n="usage_docs_title">文档管理器</h3>
+            <p data-i18n="usage_docs_desc">使用 Ctrl+Shift+D 打开文档管理器，拖拽导入文件，按分类整理，FTS5 全文搜索快速定位，支持导入撤销。</p>
+          </article>
+          <article class="usage-step">
+            <span class="step-index">08</span>
+            <h3 data-i18n="usage_backup_title">数据备份与恢复</h3>
+            <p data-i18n="usage_backup_desc">在设置中手动导出备份包，或开启自动备份按日/周/月定期执行；支持合并/覆写两种恢复策略与回滚保护。</p>
           </article>
         </div>
       </div>
@@ -254,6 +294,30 @@
             </button>
             <figcaption data-i18n="gallery_6">设置页（AI 配置）</figcaption>
           </figure>
+          <figure class="shot">
+            <button class="shot-trigger" type="button" data-lightbox-src="./images/7.png" data-lightbox-alt="fuyun_tools 应用启动器">
+              <img class="shot-image" src="./images/7.png" alt="fuyun_tools 应用启动器" loading="lazy">
+            </button>
+            <figcaption data-i18n="gallery_7">应用启动器</figcaption>
+          </figure>
+          <figure class="shot">
+            <button class="shot-trigger" type="button" data-lightbox-src="./images/8.png" data-lightbox-alt="fuyun_tools 启动器分类管理">
+              <img class="shot-image" src="./images/8.png" alt="fuyun_tools 启动器分类管理" loading="lazy">
+            </button>
+            <figcaption data-i18n="gallery_8">启动器分类管理</figcaption>
+          </figure>
+          <figure class="shot">
+            <button class="shot-trigger" type="button" data-lightbox-src="./images/9.png" data-lightbox-alt="fuyun_tools 文档管理器">
+              <img class="shot-image" src="./images/9.png" alt="fuyun_tools 文档管理器" loading="lazy">
+            </button>
+            <figcaption data-i18n="gallery_9">文档管理器</figcaption>
+          </figure>
+          <figure class="shot">
+            <button class="shot-trigger" type="button" data-lightbox-src="./images/10.png" data-lightbox-alt="fuyun_tools 文档导入管理">
+              <img class="shot-image" src="./images/10.png" alt="fuyun_tools 文档导入管理" loading="lazy">
+            </button>
+            <figcaption data-i18n="gallery_10">文档导入管理</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -264,7 +328,7 @@
         <div class="architecture">
           <div class="arch-item">
             <h3 data-i18n="arch_1_title">前端层</h3>
-            <p data-i18n="arch_1_desc">多页面 Vue 结构分别承载剪贴板、图片管理、设置、划词工具栏与结果窗口。</p>
+            <p data-i18n="arch_1_desc">多页面 Vue 结构分别承载剪贴板、图片管理、截图编辑、录屏胶囊、启动器、文档管理、设置、划词工具栏与结果窗口。</p>
           </div>
           <div class="arch-item">
             <h3 data-i18n="arch_2_title">Tauri 运行层</h3>
@@ -272,11 +336,11 @@
           </div>
           <div class="arch-item">
             <h3 data-i18n="arch_3_title">业务服务层</h3>
-            <p data-i18n="arch_3_desc">拆分为 clipboard/image_clipboard/ai 服务，包含历史监听、流式 AI 调用与错误处理。</p>
+            <p data-i18n="arch_3_desc">拆分为 clipboard / image_clipboard / ai / screenshot / recording / launcher / document / backup / diagnostic 服务，涵盖历史监听、流式 AI、截图标注、录屏采集与数据备份。</p>
           </div>
           <div class="arch-item">
             <h3 data-i18n="arch_4_title">Windows 扩展特性</h3>
-            <p data-i18n="arch_4_desc">通过鼠标监听与文本选择模块，驱动划词链路及工具栏的即时显示与交互。</p>
+            <p data-i18n="arch_4_desc">通过全局鼠标/键盘 Hook 与文本选择引擎，驱动划词工具栏与截图取色器等交互，结合 WASAPI/WGC 实现系统级音频与录屏采集。</p>
           </div>
         </div>
       </div>
