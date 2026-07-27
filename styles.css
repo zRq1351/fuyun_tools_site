@@ -18,11 +18,27 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 178, 255, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 178, 255, 0.45);
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   font-family: Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+  scrollbar-color: rgba(99, 178, 255, 0.25) transparent;
+  scrollbar-width: thin;
   background: radial-gradient(900px 500px at 8% -10%, rgba(72, 114, 255, 0.35) 0%, transparent 62%),
     radial-gradient(700px 460px at 88% 0%, rgba(33, 237, 255, 0.18) 0%, transparent 60%),
     var(--bg);
