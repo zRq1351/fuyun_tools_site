@@ -114,10 +114,10 @@ const i18nMap = {
       "Windows 录屏胶囊支持开始/暂停/恢复/停止，系统音频+麦克风采集，按键说话",
     core_6: "Windows 固定图片窗口右键 OCR 识别，双引擎（Windows 原生 + PaddleOCR）离线运行",
     core_launcher: "Windows 应用启动器（Alt+Q）：扫描开始菜单，模糊搜索快速启动",
-    core_docs: "Windows 文档管理器（Ctrl+Shift+D）：索引与仓库双模式，FTS5 全文搜索",
+    core_docs: "Windows 文档管理器（Ctrl+Shift+D）+ 桌面小部件：索引/仓库双模式、FTS5 全文搜索、系统文件图标、拖拽导入",
     core_4: "支持 DeepSeek、通义千问、小米 Mimo 与自定义 OpenAI 兼容服务，API Key 本地加密",
     core_backup: "数据备份与恢复：设置/历史/图片一键导出，支持自动备份与回滚",
-    core_5: "全局热键、托盘菜单、开机自启、应用更新、系统诊断",
+    core_system: "全局热键、托盘菜单、开机自启、中英双语国际化、应用更新、系统诊断",
     features_title: "功能模块",
     feature_1_title: "剪贴板管理",
     feature_1_desc:
@@ -142,7 +142,7 @@ const i18nMap = {
       "扫描开始菜单快捷方式，支持模糊搜索、分类管理、自定义命令，键盘导航快速启动应用（Alt+Q）。",
     feature_docs_title: "文档管理器",
     feature_docs_desc:
-      "索引与仓库双模式，支持 PDF/Word 内容提取与 FTS5 全文搜索，分类管理、拖拽导入与导入撤销（Ctrl+Shift+D）。",
+      "索引与仓库双模式管理文件，FTS5 全文搜索，系统文件图标自动提取，桌面小组件支持拖拽即导、常驻桌面使用（Ctrl+Shift+D）。",
     feature_4_title: "AI 服务配置",
     feature_4_desc:
       "内置 DeepSeek、通义千问、小米 Mimo 提供商，支持自定义 OpenAI 兼容服务，API Key 本地加密保存，提供连接测试。",
@@ -166,7 +166,7 @@ const i18nMap = {
     usage_launcher_title: "应用启动器",
     usage_launcher_desc: "使用 Alt+Q 唤出启动器，输入关键词模糊匹配应用名称，回车快速启动；支持分类管理与自定义命令。",
     usage_docs_title: "文档管理器",
-    usage_docs_desc: "使用 Ctrl+Shift+D 打开文档管理器，拖拽导入文件，按分类整理，FTS5 全文搜索快速定位，支持导入撤销。",
+    usage_docs_desc: "使用 Ctrl+Shift+D 打开文档管理器主窗口，或在设置中开启桌面小组件常驻使用。拖拽导入文件，按分类整理，FTS5 全文搜索快速定位，支持导入撤销与孤儿检测。",
     usage_backup_title: "数据备份与恢复",
     usage_backup_desc: "在设置中手动导出备份包，或开启自动备份按日/周/月定期执行；支持合并/覆写两种恢复策略与回滚保护。",
     gallery_title: "界面预览",
@@ -249,11 +249,11 @@ const i18nMap = {
       "Windows recording capsule: start/pause/resume/stop, system audio + microphone capture, push-to-talk",
     core_6: "Windows image window right-click OCR, dual-engine (Windows Native + PaddleOCR) fully offline",
     core_launcher: "Windows app launcher (Alt+Q): scan Start Menu, fuzzy search, quick launch",
-    core_docs: "Windows document manager (Ctrl+Shift+D): index & repository dual mode, FTS5 full-text search",
+    core_docs: "Windows document manager (Ctrl+Shift+D) + desktop widget: index/repo dual mode, FTS5 search, system file icons, drag-and-drop import",
     core_4:
       "DeepSeek, Qwen, Xiaomi Mimo, and custom OpenAI-compatible providers, API Key encrypted locally",
     core_backup: "Data backup & restore: one-click export settings/history/images, auto-backup with rollback",
-    core_5: "Global hotkeys, tray menu, auto-start, in-app update, system diagnostics",
+    core_system: "Global hotkeys, tray menu, auto-start, bilingual i18n (zh-CN/EN), auto-update, system diagnostics",
     features_title: "Feature Modules",
     feature_1_title: "Clipboard Manager",
     feature_1_desc:
@@ -278,7 +278,7 @@ const i18nMap = {
       "Scans Start Menu shortcuts, fuzzy search, category management, custom commands. Keyboard navigation for quick app launch (Alt+Q).",
     feature_docs_title: "Document Manager",
     feature_docs_desc:
-      "Index & repository dual mode, PDF/Word content extraction, FTS5 full-text search, category management, drag-drop import with undo (Ctrl+Shift+D).",
+      "Index & repository dual mode with FTS5 full-text search. Auto-extracts system file icons. Desktop widget for always-on drag-and-drop import (Ctrl+Shift+D).",
     feature_4_title: "AI Provider Config",
     feature_4_desc:
       "Built-in DeepSeek, Qwen, Xiaomi Mimo providers plus custom OpenAI-compatible services. API keys encrypted locally with connection testing.",
@@ -309,7 +309,7 @@ const i18nMap = {
       "Press Alt+Q to open launcher, type to fuzzy-search apps by name, Enter to launch. Supports category management and custom commands.",
     usage_docs_title: "Document Manager",
     usage_docs_desc:
-      "Press Ctrl+Shift+D to open document manager, drag-drop files to import, organize by category, use FTS5 full-text search to find files. Import undo supported.",
+      "Press Ctrl+Shift+D to open the manager, or enable the desktop widget in settings for always-on access. Drag-drop files to import, organize by category, FTS5 search, import undo & orphan detection.",
     usage_backup_title: "Backup & Restore",
     usage_backup_desc:
       "Manually export a backup package from settings, or enable scheduled auto-backup (daily/weekly/monthly). Supports merge/overwrite strategies with rollback protection.",
@@ -635,59 +635,6 @@ function initScrollAnimations() {
   });
 }
 
-// Enhanced cursor trail effect
-function createCursorTrail() {
-  const trail = [];
-  const trailLength = 8;
-
-  for (let i = 0; i < trailLength; i++) {
-    const dot = document.createElement("div");
-    dot.style.cssText = `
-      position: fixed;
-      width: ${4 - i * 0.5}px;
-      height: ${4 - i * 0.5}px;
-      background: rgba(99, 178, 255, ${0.6 - i * 0.08});
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform ${0.1 + i * 0.02}s ease;
-      box-shadow: 0 0 ${6 - i}px rgba(99, 178, 255, 0.4);
-    `;
-    document.body.appendChild(dot);
-    trail.push(dot);
-  }
-
-  let mouseX = 0;
-  let mouseY = 0;
-
-  document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function animateTrail() {
-    let x = mouseX;
-    let y = mouseY;
-
-    trail.forEach((dot, index) => {
-      const nextDot = trail[index + 1] || trail[0];
-
-      dot.style.left = x + "px";
-      dot.style.top = y + "px";
-      dot.style.transform = `translate(-50%, -50%)`;
-
-      if (nextDot) {
-        x += (parseFloat(nextDot.style.left) - x) * 0.3;
-        y += (parseFloat(nextDot.style.top) - y) * 0.3;
-      }
-    });
-
-    requestAnimationFrame(animateTrail);
-  }
-
-  animateTrail();
-}
-
 // Typing effect for hero title
 function addTypingEffect() {
   const heroTitle = document.querySelector("h1");
@@ -696,19 +643,6 @@ function addTypingEffect() {
   const cursor = document.createElement("span");
   cursor.className = "typing-cursor";
   heroTitle.appendChild(cursor);
-}
-
-// Parallax effect for hero section
-function initParallax() {
-  const hero = document.querySelector(".hero");
-  if (!hero) return;
-
-  window.addEventListener("scroll", () => {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
-
-    hero.style.transform = `translateY(${rate}px)`;
-  });
 }
 
 // Enhanced button hover effects
@@ -781,14 +715,6 @@ function initEnhancements() {
   addTypingEffect();
   enhanceButtons();
   addCardGlow();
-
-  // Delay cursor trail for better performance
-  setTimeout(createCursorTrail, 1000);
-
-  // Only add parallax on non-mobile devices
-  if (window.innerWidth > 768) {
-    initParallax();
-  }
 }
 
 // Run when DOM is ready
@@ -798,296 +724,3 @@ if (document.readyState === "loading") {
   initEnhancements();
 }
 
-// Custom scrollbar with JavaScript - 修复拖拽跟随鼠标问题
-function createCustomScrollbar() {
-  // Hide native scrollbar with CSS
-  const style = document.createElement("style");
-  style.textContent = `
-    /* Hide native scrollbar */
-    ::-webkit-scrollbar {
-      display: none !important;
-    }
-    
-    html {
-      scrollbar-width: none !important;
-    }
-    
-    body {
-      -ms-overflow-style: none !important;
-      overflow: -moz-scrollbars-none !important;
-    }
-  `;
-  document.head.appendChild(style);
-
-  // Create custom scrollbar elements
-  const scrollbarContainer = document.createElement("div");
-  scrollbarContainer.id = "custom-scrollbar";
-  scrollbarContainer.innerHTML = `
-    <div class="scrollbar-track">
-      <div class="scrollbar-thumb"></div>
-    </div>
-  `;
-  document.body.appendChild(scrollbarContainer);
-
-  // Add CSS for custom scrollbar
-  const scrollbarStyle = document.createElement("style");
-  scrollbarStyle.textContent = `
-    #custom-scrollbar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 12px;
-      height: 100vh;
-      z-index: 9999;
-      pointer-events: auto;
-    }
-    
-    .scrollbar-track {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 12px;
-      height: 100%;
-      background: 
-        linear-gradient(90deg, rgba(15, 23, 42, 0.9), rgba(25, 35, 60, 0.9)),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 2px,
-          rgba(99, 178, 255, 0.03) 2px,
-          rgba(99, 178, 255, 0.03) 4px
-        );
-      border-left: 1px solid rgba(99, 178, 255, 0.1);
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-      pointer-events: auto;
-    }
-    
-    .scrollbar-thumb {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 12px;
-      min-height: 30px;
-      background: 
-        linear-gradient(180deg, 
-          rgba(99, 178, 255, 0.8), 
-          rgba(108, 255, 237, 0.6),
-          rgba(255, 107, 157, 0.4),
-          rgba(99, 178, 255, 0.8)
-        );
-      background-size: 100% 200%;
-      border-radius: 6px;
-      border: 1px solid rgba(99, 178, 255, 0.3);
-      box-shadow: 
-        0 0 15px rgba(99, 178, 255, 0.6),
-        0 0 25px rgba(108, 255, 237, 0.4),
-        0 0 35px rgba(99, 178, 255, 0.2),
-        inset 0 0 10px rgba(255, 255, 255, 0.1);
-      cursor: pointer;
-      pointer-events: auto;
-      transition: box-shadow 0.3s ease;
-      animation: scrollbar-glow 2s ease-in-out infinite, scrollbar-flow 3s ease-in-out infinite;
-    }
-    
-    .scrollbar-thumb:hover {
-      background: 
-        linear-gradient(180deg, 
-          rgba(99, 178, 255, 1), 
-          rgba(108, 255, 237, 0.8),
-          rgba(255, 107, 157, 0.6),
-          rgba(99, 178, 255, 1)
-        );
-      box-shadow: 
-        0 0 20px rgba(99, 178, 255, 0.8),
-        0 0 35px rgba(108, 255, 237, 0.6),
-        0 0 50px rgba(99, 178, 255, 0.4),
-        0 0 65px rgba(108, 255, 237, 0.2),
-        inset 0 0 15px rgba(255, 255, 255, 0.2);
-      transform: scaleX(1.1);
-      border-color: rgba(99, 178, 255, 0.6);
-    }
-    
-    .scrollbar-thumb:active,
-    .scrollbar-thumb.dragging {
-      background: 
-        linear-gradient(180deg, 
-          rgba(255, 107, 157, 1), 
-          rgba(99, 178, 255, 1),
-          rgba(108, 255, 237, 0.8),
-          rgba(255, 107, 157, 1)
-        );
-      box-shadow: 
-        0 0 25px rgba(255, 107, 157, 0.8),
-        0 0 40px rgba(99, 178, 255, 0.6),
-        0 0 55px rgba(108, 255, 237, 0.4),
-        inset 0 0 20px rgba(255, 255, 255, 0.3);
-      transform: scaleX(1.15);
-    }
-    
-    @keyframes scrollbar-glow {
-      0%, 100% {
-        box-shadow: 
-          0 0 15px rgba(99, 178, 255, 0.6),
-          0 0 25px rgba(108, 255, 237, 0.4),
-          0 0 35px rgba(99, 178, 255, 0.2),
-          inset 0 0 10px rgba(255, 255, 255, 0.1);
-      }
-      50% {
-        box-shadow: 
-          0 0 20px rgba(99, 178, 255, 0.8),
-          0 0 30px rgba(108, 255, 237, 0.6),
-          0 0 45px rgba(99, 178, 255, 0.4),
-          0 0 55px rgba(108, 255, 237, 0.2),
-          inset 0 0 15px rgba(255, 255, 255, 0.15);
-      }
-    }
-    
-    @keyframes scrollbar-flow {
-      0%, 100% {
-        background-position: 0% 0%;
-      }
-      50% {
-        background-position: 0% 100%;
-      }
-    }
-    
-    @keyframes scrollbar-rainbow {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-  `;
-  document.head.appendChild(scrollbarStyle);
-
-  // JavaScript scrollbar functionality
-  const thumb = scrollbarContainer.querySelector(".scrollbar-thumb");
-  const track = scrollbarContainer.querySelector(".scrollbar-track");
-  let isDragging = false;
-  let startMouseY = 0;
-  let startThumbTop = 0;
-
-  // Update scrollbar position
-  function updateScrollbar() {
-    if (isDragging) return; // 拖拽时不更新，避免冲突
-    
-    const scrollHeight = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight
-    );
-    const clientHeight = document.documentElement.clientHeight;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-
-    if (scrollHeight <= clientHeight) {
-      thumb.style.display = "none";
-      return;
-    }
-
-    thumb.style.display = "block";
-    const thumbHeight = Math.max(
-      (clientHeight / scrollHeight) * clientHeight,
-      30
-    );
-    const maxThumbTop = clientHeight - thumbHeight;
-    const thumbTop = (scrollTop / (scrollHeight - clientHeight)) * maxThumbTop;
-
-    thumb.style.height = thumbHeight + "px";
-    thumb.style.top = thumbTop + "px";
-  }
-
-  // Scroll to position
-  function scrollToPosition(thumbTop) {
-    const scrollHeight = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight
-    );
-    const clientHeight = document.documentElement.clientHeight;
-    const thumbHeight = thumb.offsetHeight;
-    const maxThumbTop = clientHeight - thumbHeight;
-    
-    // 防止除零错误
-    if (maxThumbTop <= 0 || scrollHeight <= clientHeight) return;
-    
-    const percentage = Math.max(0, Math.min(1, thumbTop / maxThumbTop));
-    const scrollTo = percentage * (scrollHeight - clientHeight);
-    
-    // 使用直接赋值scrollTop，确保实时性
-    document.documentElement.scrollTop = scrollTo;
-    document.body.scrollTop = scrollTo;
-  }
-
-  // Mouse events for thumb dragging
-  thumb.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    startMouseY = e.clientY;
-    startThumbTop = parseFloat(thumb.style.top) || 0;
-    thumb.classList.add("dragging");
-    document.body.style.userSelect = "none";
-    e.preventDefault();
-    e.stopPropagation();
-  });
-
-  document.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    
-    const deltaY = e.clientY - startMouseY;
-    const newThumbTop = startThumbTop + deltaY;
-    const clientHeight = document.documentElement.clientHeight;
-    const thumbHeight = thumb.offsetHeight;
-    const maxThumbTop = clientHeight - thumbHeight;
-    
-    // Clamp the thumb position
-    const clampedThumbTop = Math.max(0, Math.min(maxThumbTop, newThumbTop));
-    
-    // Update thumb position immediately
-    thumb.style.top = clampedThumbTop + "px";
-    
-    // Scroll the page
-    scrollToPosition(clampedThumbTop);
-  });
-
-  document.addEventListener("mouseup", () => {
-    if (isDragging) {
-      isDragging = false;
-      thumb.classList.remove("dragging");
-      document.body.style.userSelect = "";
-    }
-  });
-
-  // Click on track to scroll
-  track.addEventListener("click", (e) => {
-    if (e.target === thumb || isDragging) return;
-
-    const rect = track.getBoundingClientRect();
-    const clickY = e.clientY - rect.top;
-    const thumbHeight = thumb.offsetHeight;
-    const newThumbTop = clickY - thumbHeight / 2;
-    const clientHeight = document.documentElement.clientHeight;
-    const maxThumbTop = clientHeight - thumbHeight;
-    const clampedThumbTop = Math.max(0, Math.min(maxThumbTop, newThumbTop));
-    
-    thumb.style.top = clampedThumbTop + "px";
-    scrollToPosition(clampedThumbTop);
-  });
-
-  // Update on scroll
-  window.addEventListener("scroll", updateScrollbar, { passive: true });
-
-  // Update on resize
-  window.addEventListener("resize", updateScrollbar, { passive: true });
-
-  // Initial update
-  updateScrollbar();
-
-  // Continuous update for smoother experience
-  setInterval(updateScrollbar, 16); // ~60fps updates
-}
-
-// Initialize custom scrollbar
-createCustomScrollbar();
